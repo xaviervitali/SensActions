@@ -1,0 +1,80 @@
+{% extends 'baseAdmin.html.twig' %}
+
+{% block stylesheetsAdmin %}
+    <link rel="stylesheet" href="{{ asset('css/adminFormations.css') }}">
+{% endblock %}  
+{% block main %}
+<pre>
+    {% set orphans = (formations | filter(e=>(e.learningCategories | length == 0)) ) %}
+</pre>
+     <section>
+
+
+        <article class="titre d-flex justify-content-center">
+            <label class="titres d-flex flex-column justify-content-center align-items-betwe">
+                <input type="checkbox"  />
+                <div >
+                <h2 class="text-center"> Ajouter un thème de formation</h2>
+                </div>
+                    {{ form_start(form, {attr: {class:"w-100"}})}}
+                    <div class="">
+                    {{ form_widget(form.name)}}
+                    {{ form_row(form.formations)}}
+                    </div>
+                    <button class="btn btn-success btn-block">Valider</button>
+                    {{ form_end(form)}}
+            </label>
+            <a  href="{{ path('app_formation_new') }}" class="  fs-2  text-center btn col d-flex flex-column justify-content-center d-block">
+            <div class="">
+            Ajouter une formation
+          </div>
+          </a> 
+        </article>
+             {% if orphans %}
+           <article class="alert alert-warning my-5 p-3" role="alert">
+                Attention des formations n'ont pas encore été classées :
+                <ul>
+                {% for orphan in orphans %}
+                    <li><a href="{{ path('app_formation_edit', {id: orphan.id})}}"> {{ orphan.name }}</a></li>
+                {% endfor %}
+                </ul>
+
+            </article>  
+     {% endif %}
+        <article class="themes">
+        {% for theme in learningCategory | sort((a,b)=>(a.name | lower > b.name | lower)) %}
+            <article class="my-5">
+                <div class="cat">
+                    <div class="col text-center">
+                    {% set formationsLength = theme.formations | length  %}
+                        <h2>{{ theme.name | upper }} {{ formationsLength >= 0 ? "(" ~ formationsLength ~
+                        " formation" : ""}}{{ formationsLength > 1 ? "s)": ")"}}
+                        </h2>
+                    </div>
+                    <div class="container">
+                        <div class="row">
+                        <div class="col-sm">
+                            <ul>
+                            <pre>
+                            </pre>
+
+                           {% for formation in theme.formations %}
+                            <li><a href="{{path("app_formation_show", {slug: formation.slug})}}">{{ formation.name}}</a> <a href="{{ path('app_formation_edit', {id: formation.id})}}"><i class="fa-solid fa-pencil"></i></a></li>
+                           {% endfor %}
+
+                            </ul>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+             <p class="text-end">
+             <a href="{{ path("app_learningCategory_delete", {id: theme.id})}}">
+          <i class="fa-solid fa-trash-can fs-3" title="Supprimer le thème : {{theme.name}}"></i></a>
+          </p>
+      </article>
+        {% endfor %}
+          <!-- Block généré par le JS -->
+        </article>
+      </section>
+
+{% endblock %}

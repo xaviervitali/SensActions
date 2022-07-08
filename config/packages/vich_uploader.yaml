@@ -1,0 +1,21 @@
+vich_uploader:
+  db_driver: orm
+
+  mappings:
+    files:
+      uri_prefix: /files
+      upload_destination: "%kernel.project_dir%/public/files"
+      delete_on_remove: true
+      inject_on_load: true
+      delete_on_update: true
+      namer:
+        service: Vich\UploaderBundle\Naming\PropertyNamer
+        options: { property: "slug" }
+
+    news:
+      uri_prefix: /newsPictures
+      upload_destination: "%kernel.project_dir%/public/newsPictures"
+      namer: Vich\UploaderBundle\Naming\UniqidNamer
+      delete_on_remove: true
+      inject_on_load: true
+      delete_on_update: true

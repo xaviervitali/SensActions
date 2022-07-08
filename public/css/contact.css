@@ -1,0 +1,43 @@
+h1 {
+  padding: 25px 0 0 0;
+}
+main {
+  width: 80%;
+}
+.bouton {
+  color: var(--color-dark-blue);
+  background-color: var(--color-yellow);
+}
+
+.bouton:hover {
+  color: var(--color-dark-blue);
+  background-color: var(--color-yellow);
+}
+
+article {
+  padding-top: 40px;
+}
+
+form {
+  color: white;
+  padding: 50px;
+  border-radius: 10px;
+  background-color: var(--color-dark-blue);
+  /* border-color: var(--color-dark-blue); */
+}
+
+p {
+  padding-top: 10px;
+}
+
+input[type="radio"] {
+  margin-left: 5vw;
+}
+
+textarea {
+  min-height: 200px !important;
+}
+img {
+  max-width: 640px;
+  width: 30% !important;
+}

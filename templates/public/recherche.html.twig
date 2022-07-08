@@ -1,0 +1,11 @@
+	    <form class="d-flex  pt-3 pb-4  col-11 m-auto" role="search">
+            <input class="form-control me-2"  list="programmingLanguages"  type="search" placeholder="Chercher une formation" aria-label="Search">
+			<datalist id="programmingLanguages">
+			{% for formation in formations %}
+				
+            <option value="{{formation.name}}">
+			{% endfor %}
+       
+            </datalist>
+            <button class="btn">Chercher</button>
+          </form>

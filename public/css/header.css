@@ -1,0 +1,137 @@
+header {
+  /* min-height: 150px; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* border-bottom: 10px solid var(--color-yellow); */
+}
+.navbar-expand-lg {
+  /* margin: 3vw 0; */
+}
+header .navbar-nav {
+  justify-content: space-around;
+  width: 100%;
+  /* background-color: var(--color-yellow); */
+}
+
+header .navbar .nav-link {
+  color: var(--color-dark-blue);
+  font-weight: bolder;
+  font-size: 1.2rem;
+  transition: all 0.5s;
+}
+header .navbar .nav-link:hover {
+  color: var(--color-blue);
+  transform: scale(1.2);
+  letter-spacing: 5px;
+  transition: all 0.5s;
+}
+header .navbar-brand {
+  /* width: 70%; */
+  /* width: 125px; */
+  /* height: 90px; */
+  /* position: absolute; */
+  /* left: 3vw; */
+}
+
+.logo {
+  z-index: 1;
+}
+header .navbar-brand img {
+  width: 12vw;
+  /* height: 100%; */
+  object-fit: cover;
+}
+header .dropdown-menu {
+  background-color: var(--color-blue);
+}
+
+header .dropdown-item {
+  color: var(--color-dark-blue);
+  font-weight: bolder;
+}
+
+header .dropdown-item:hover {
+  color: var(--color-dark-blue);
+}
+
+header .catchphrase {
+  color: var(--color-dark-blue);
+  letter-spacing: 1rem;
+  text-align: center;
+  font-size: 24px;
+  bottom: 45px;
+}
+
+/* /////////////////////////////////////////////      responsive      /////////////////////////////////////////////// */
+
+@media screen and (max-width: 992px) {
+  header .btn {
+    visibility: hidden;
+  }
+
+  header .btn2 {
+    visibility: visible;
+  }
+  header .carre {
+    visibility: hidden;
+  }
+  header .navbar-toggler {
+    /* position: relative;
+    bottom: 40px; */
+    color: var(--color-dark-blue);
+    background-color: var(--color-yellow);
+  }
+
+  header .navbar-toggler:hover {
+    color: var(--color-yellow);
+    background-color: var(--color-dark-blue);
+  }
+
+  header .navbar-collapse {
+    z-index: 2;
+  }
+
+  header .d-flex {
+    position: relative;
+    text-align: center;
+  }
+
+  header .catchphrase {
+    position: relative;
+    font-size: 16px;
+    bottom: 33px;
+    /* border-bottom: var(--color-yellow) 4px solid !important; */
+    z-index: 0;
+    width: 80%;
+    margin: 0 auto;
+  }
+  header .navbar-brand {
+    left: 100px;
+  }
+  header .navbar-nav {
+    position: relative;
+    text-align: center;
+    /* bottom: 10px; */
+    /* background-color: var(--color-dark-blue); */
+  }
+}
+
+@media screen and (max-width: 411px) {
+  header {
+    /* background-color: var(--color-blue); */
+    height: auto;
+    min-height: auto;
+    padding: 10px 0;
+  }
+
+  header .navbar-brand {
+    width: 100%;
+    left: 0;
+    z-index: -1;
+  }
+
+  header .catchphrase {
+    display: none;
+  }
+}

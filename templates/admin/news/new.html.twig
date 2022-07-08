@@ -1,0 +1,12 @@
+{% extends 'baseAdmin.html.twig' %}
+{% block stylesheetsAdmin %}
+    <link rel="stylesheet" href="{{asset("css/adminFormFormation.css")}}">
+{% endblock %}
+
+{% block main %}
+    <h1>Créer une actualité</h1>
+
+    {{ include('admin/news/_form.html.twig', {button_label: "Enregistrer l'actualité"}) }}
+
+    <a href="{{ path('app_news_index') }}">Revenir à la liste</a>
+{% endblock %}

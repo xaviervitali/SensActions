@@ -1,0 +1,199 @@
+:root {
+  --min-tab-width: 8vw;
+  --max-tab-width: 80vw;
+  --max-tabContent-width: 90vw;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Montserrat", sans-serif;
+}
+main {
+  /* width: 100%; */
+  /* padding: 0 10%; */
+  /* background-color: var(--color-dark-blue) !important; */
+  background-color: var(--color-blue-admin);
+}
+
+/* Background colours */
+
+.tab:nth-child(4n + 1),
+.tab:nth-child(4n + 1) .tabTitle,
+.accordion-item:nth-child(4n + 1) {
+  background: var(--color-blue);
+  z-index: -1;
+}
+
+.tab:nth-child(4n + 2),
+.tab:nth-child(4n + 2) .tabTitle,
+.accordion-item:nth-child(4n + 2) {
+  background: var(--color-grey);
+}
+
+.tab:nth-child(4n + 3),
+.tab:nth-child(4n + 3) .tabTitle,
+.accordion-item:nth-child(4n + 3) {
+  background: var(--color-yellow);
+}
+
+.tab:nth-child(4n + 4),
+.tab:nth-child(4n + 4) .tabTitle,
+.accordion-item:nth-child(4n + 4) {
+  background: var(--color-red);
+}
+
+/* Main layout */
+main {
+  width: 100vw;
+}
+/* html, */
+/* body, */
+section {
+  width: 100vw;
+  height: 90vh;
+  margin: 0;
+  padding: 0;
+}
+section {
+  overflow: hidden;
+}
+main > article > p {
+  max-width: 100vw;
+  line-height: 2em;
+  color: white;
+  text-decoration: none;
+}
+
+main a {
+  color: white;
+  text-decoration: none;
+}
+
+main > article {
+  height: 100vh;
+  padding: 1em;
+  overflow: auto;
+  box-shadow: 0 0 20px black;
+  -ms-overflow-style: none; /* for Internet Explorer, Edge */
+  scrollbar-width: none; /* for Firefox */
+}
+*::-webkit-scrollbar {
+  display: none;
+}
+
+section .tab {
+  width: var(--min-tab-width);
+  display: flex;
+  position: relative;
+  transition: width ease-in-out 0.2s;
+
+  /* justify-content: space-between; */
+}
+
+.tab {
+  filter: drop-shadow(0em 0em 20px black);
+}
+
+section .tab:hover {
+  width: var(--max-tab-width);
+}
+
+.tabContent {
+  opacity: 0;
+  transition: opacity 0.2s ease 0;
+  min-width: var(--min-tab-width);
+  padding-top: 10vh;
+  overflow: auto;
+  visibility: hidden;
+}
+
+.tab:hover .tabContent {
+  opacity: 1;
+  transition: opacity 0.3s ease 0.3s;
+  margin: 2vh;
+  margin-left: var(--min-tab-width);
+  width: auto;
+  transition: width ease-in-out 0.2s;
+  visibility: visible;
+
+  /* width: var(--max-tab-width); */
+}
+
+.tabTitle {
+  position: relative;
+  clip-path: polygon(0 0, 100% 10%, 100% 90%, 0% 100%);
+  text-transform: uppercase;
+  display: flex;
+  width: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 30vh;
+  text-align: center;
+  color: white;
+  transition: top ease-in-out 0.2s;
+}
+.tabTitle h2 {
+  margin: 0;
+  font-size: 10px;
+
+  transform: rotate(90deg);
+}
+/* Hover interaction */
+
+.tab:hover .tabTitle h2 {
+  font-weight: bolder;
+  transform: rotate(0deg);
+  font-size: 1.5vw;
+  text-shadow: 0 0 10px black;
+}
+
+.tab:hover .tabTitle {
+  align-items: flex-start;
+  clip-path: none;
+  top: 2vh !important;
+  right: var(--min-tab-width) !important;
+  /* width: var(--min-tab-width) !important; */
+
+  /* word-break: break-all; */
+  transition: top ease-in-out 0.2s;
+}
+
+.tab:hover .tabContent {
+  width: 65%;
+}
+.tabContent li {
+  width: 50%;
+}
+.tabContent li:nth-last-child(2n) {
+  margin-left: 50%;
+}
+
+main ul {
+  list-style: none;
+}
+
+@media screen and (max-width: 992px) {
+  .accordion-body {
+    margin-left: 20vw;
+  }
+  .accordion-button {
+    color: white !important;
+  }
+  .accordion :nth-child(4n + 1) button {
+    background-color: var(--color-blue);
+  }
+  .accordion :nth-child(4n + 2) button {
+    background-color: var(--color-grey);
+  }
+  .accordion :nth-child(4n + 3) button {
+    background-color: var(--color-yellow);
+  }
+  .accordion :nth-child(4n + 4) button {
+    background-color: var(--color-red);
+  }
+}

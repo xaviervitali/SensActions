@@ -1,0 +1,46 @@
+{% extends 'baseAdmin.html.twig' %}
+{% block stylesheetsAdmin %}
+    <link rel="stylesheet" href="{{ asset('css/adminNews.css') }}">
+{% endblock %}  
+
+
+{% block main %}
+    <h1>Liste des actualités</h1>
+
+    <table class="table table-stripped">
+        <thead>
+            <tr>
+                <th>Ajouté le</th>
+                <th>Titre</th>
+                <th>Description</th>
+                <th>Image</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for news in news %}
+            <tr>
+                <td>{{ news.updatedAt | format_datetime('full', 'short', locale='fr')  }}</td>
+                <td >{{ news.title }}</td>
+                <td >{{ news.description }}</td>
+                <td >
+                {% if  news.image  %}
+                    <img src="{{asset("newsPictures/" ~ news.image) }}"></td>
+                {% else %}
+                    Pas d'illustration
+                {% endif %}
+                <td>
+                    <a class="text-success d-block my-2" href="{{ path('app_news_show', {'id': news.id}) }}">Afficher l'événement</a>
+                    <a class="text-info d-block my-2" href="{{ path('app_news_edit', {'id': news.id}) }}">Éditer l'événement</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">Pas d'actualité pour l'instant</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a  class="btn btn-success" href="{{ path('app_news_new') }}">Créer une nouvelle actualité</a>
+{% endblock %}

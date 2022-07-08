@@ -1,0 +1,35 @@
+main {
+  background-image: url(../img/backgroung_opa_80.png);
+  background-size: cover;
+  width: 100%;
+  margin-top: 3vh;
+  padding-bottom: 5vh;
+}
+::-webkit-scrollbar {
+  /* display: none; */
+}
+.carousel-inner {
+  height: 70vh;
+  position: relative;
+}
+
+.carousel-inner img {
+  height: 70vh;
+  object-fit: cover;
+  filter: contrast(0.4);
+}
+
+.carousel-caption {
+  position: absolute;
+  top: 10%;
+  height: 80%;
+  background-color: rgba(0, 0, 0, 0.3);
+  font-size: calc(10px + 0.5vw);
+
+  display: flex !important;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.carousel-caption h5 {
+  font-size: calc(20px + 0.5vw);
+}

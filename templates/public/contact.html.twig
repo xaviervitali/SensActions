@@ -1,0 +1,198 @@
+{% extends "base.html.twig" %}
+{% block stylesheets %}
+	<link rel="stylesheet" href="{{ asset('css/contact.css') }}">
+{% endblock %}
+{% block main %}
+    <section  class="text-center">
+        <article>
+          <h1><strong>Un besoin ? Parlons-en !</strong></h1>
+          <p>
+            Qu’il s’agisse d’actions visant à développer la
+           formation à la santé et la
+           sécurité au travail au sein de votre structure,
+          </p>
+<p>
+           Sens Actions à Marseille joue un rôle primordial
+            dans la transmission des performances et compétences en prévention
+            des risques professionnels.</p>
+          <p>
+            L’équipe de Sens Actions reste à votre écoute pour
+            l’étude de vos besoins.
+          </p>
+        </article>
+        <article>
+          {# <form action="" method="">
+            <div class="row mb-3">
+              <div class="col">
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Nom"
+                  required="required"
+                />
+              </div>
+              <div class="col">
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Prénom"
+                  required="required"
+                />
+              </div>
+            </div>
+            <div class="row mb-3">
+              <div class="col">
+                <input
+                  type="tel"
+                  id="contact_phone"
+                  name="contact[phone]"
+                  required="required"
+                  placeholder="Téléphone"
+                  class="form-control"
+                />
+              </div>
+              <div class="col">
+                <input
+                  type="mail"
+                  class="form-control"
+                  placeholder="E-mail"
+                  required="required"
+                />
+              </div>
+            </div>
+            <div class="row mb-3">
+              <div class="col">
+                <label class="choix-radio" style="padding: 15px"
+                  >Vous êtes :</label
+                >
+              </div>
+              <div
+                class="col d-block d-md-flex justify-content-around custom-control custom-radio"
+              >
+                <label class="custom-control-label" for="radio1">
+                 Un particulier
+                  <input type="radio" class="custom-control-input" id="radio1"
+                /></label>
+
+                <label class="custom-control-label" for="radio1">
+                 Une entreprise
+                  <input type="radio" class="custom-control-input" id="radio2"
+                /></label>
+              </div>
+              <div class="form-group">
+                <label for="message"></label>
+                <textarea
+                  class="form-control"
+                  id="bio"
+                  placeholder="Message"
+                  rows="4"
+                ></textarea>
+              </div>
+              <div class="rgpd">
+                <p>
+                  <input
+                    type="checkbox"
+                    id="contact_agreements"
+                    name="contact[agreements]"
+                    required="required"
+                    class="form-check-input"
+                    value="1"
+                  />
+                  <span
+                    >J'accepte de communiquer mes coordonnées personnelles qui
+                    seront traitées dans le cadre du respect du RGPD de Sens Actions.</span
+                  >
+                </p>
+              </div>
+              <div class="d-grid justify-content-md-end">
+                <button class="btn bouton" type="envoyer">Envoyer</button>
+              </div>
+            </div>
+          </form> #}
+          {% set flashes = app.flashes  %}
+      {% if flashes %}
+              {% for type, message in flashes %}
+                <article class="alert alert-{{type}}" role="alert"><p>Merci, votre message : </p> <p>{{message[0]}}</p><p>A bien été envoyé.</p></article>
+              {% endfor %}
+              {% else %}
+          {{ form_start(form)}}
+          <div class="row mb-3">
+            <div class="col">
+              {{ form_widget(form.firstname)}}
+            </div>
+            <div class="col">
+              {{ form_widget(form.lastname)}}
+            </div>
+          </div>
+          <div class="row mb-3">
+            <div class="col">
+          {{ form_widget(form.email)}}
+               </div>
+            <div class="col">
+          {{ form_widget(form.phone)}}
+            </div>
+          </div>
+          <div class="row mb-3">
+            <div class="col">
+              {{ form_label(form.contactType)}}
+            </div>
+            <div
+                class="col d-block d-md-flex justify-content-around custom-control custom-radio"
+              >
+              {{ form_widget(form.contactType)}}
+
+            </div>
+          </div>
+          {{ form_widget(form.message)}}
+          {{ form_widget(form.aggrements)}}
+          {{ form_label(form.aggrements)}}
+    
+              
+              <div class="d-grid justify-content-md-end">
+                <button class="btn bouton" type="envoyer">Envoyer</button>
+              </div>
+
+          {{ form_end(form)}}
+          {% endif %}
+     
+        </article>
+
+        <div class="d-flex justify-content-center">
+          <article
+            class="container row d-flex align-items-center border-rounded"
+          >
+
+
+            <article class="col">
+              <h2>52 Avenue des Pébrons</h2>
+              <h2>13008 Marseille</h2>
+              <h5>06.77.20.23.17</h5>
+              <h5>06.19.23.36.31</h5>
+
+              <iframe
+              class=" order-last"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2749.3118690584165!2d5.353393515363498!3d43.21377107913879!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12c9c7a7de3bf29b%3A0xe3d285e92125541f!2sSens%20Actions!5e1!3m2!1sfr!2sfr!4v1655129846622!5m2!1sfr!2sfr"
+              width="500"
+              height="250"
+              style="border-radius: 5%"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              id="carte"
+            ></iframe>
+            </article>
+            <img src="http://via.placeholder.com/640x360" alt="" class="d-block col">
+          </article>
+        </div>
+      </section>
+
+
+
+
+{% endblock %}
+{% block javascripts %}
+  <script>
+
+
+</script>
+{% endblock %}

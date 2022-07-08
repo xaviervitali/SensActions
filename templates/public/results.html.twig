@@ -1,0 +1,43 @@
+{% extends "base.html.twig" %}
+
+{% block main %}
+
+{% include "public/recherche.html.twig" %}
+{% set query = app.request.get('query')%}
+  
+    {% if results %}
+      <p class="my-3">
+    Voici les résultats de la recherche pour : <b>{{ query }}</b>
+    </p>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Nom de la formation</th>
+                <th scope="col">Objectif</th>
+                <th scope="col">Plaquette</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for result in results %}
+                <tr>
+                <td>{{result.name}}</td>
+                <td>{{result.goal | u.truncate(50, '...') }} <a href="{{path("app_formation_show", {slug: result.slug}) }}">Voir la fiche complete</a></td>
+                <td> <a href="{{asset("files"~result.file)}}">
+                Télécharger la plaquette</a></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+        Aucun résultat trouvé <b>{{ query ? " pour "~ query : ""}}</p>
+    {% endif %}
+{% endblock %}
+
+{% block javascripts %}
+    <script>
+	const formations = {{ formations | serialize("json", { groups: 'formation_view'}) | raw}}
+	const formationPath = "{{ path("app_formation_show", {slug: "slug"})}}"
+	const queryPath = "{{ path("app_query")}}"
+    </script>
+    <script src="{{ asset('js/formations.js') }}"></script>
+{% endblock %}

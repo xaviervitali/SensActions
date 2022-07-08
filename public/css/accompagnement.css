@@ -1,0 +1,186 @@
+section:nth-child(3) {
+  height: 15vw;
+}
+main {
+  /* background: url(../img/logo5.png), url(../img/backgroung_opa_80.png);*/
+  /* background: linear-gradient(
+    11deg,
+    var(--color-grey) 39.95%,
+    var(--color-blue) 40.05%
+  ); */
+  /* background-color: var(--color-blue); */
+  background-blend-mode: difference;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  /* padding: 0 10%; */
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+ul,
+p {
+  font-size: 0.9vw;
+}
+
+h2 {
+  font-size: 1.6vw;
+}
+/* j'espace les sections des blobs */
+/* .intro,
+.demarche,
+.audit {
+  padding: 20px 0;
+} */
+
+article {
+  height: 0;
+}
+/* je place et normalise les textes du blob intro */
+.textIntro {
+  color: #ebbd04;
+  position: relative;
+  top: -17vw;
+  left: 15%;
+}
+
+.textIntro p {
+  width: 80%;
+}
+
+/* je place et normalise les textes du blob central */
+.textDemarche {
+  color: var(--color-dark-blue);
+}
+
+.textDemarche .textDemarche1 h2 {
+  position: relative;
+  top: -20vw;
+  left: 45vw;
+  transition: 2.5s;
+  width: 100px;
+  text-align: center;
+}
+.textDemarche ul {
+  width: 40%;
+  visibility: hidden;
+}
+
+.blob2:hover ul {
+  visibility: visible;
+}
+.textDemarche .textDemarche1 ul {
+  position: relative;
+  left: 10%;
+  opacity: 0;
+  transition: 1s;
+}
+.textDemarche .textDemarche2 h2 {
+  position: relative;
+  top: -17vw;
+  left: 50vw;
+  opacity: 0;
+  transition: 1s;
+}
+.textDemarche .textDemarche2 ul {
+  position: relative;
+  top: -16vw;
+  left: 50vw;
+  opacity: 0;
+  transition: 1s;
+}
+
+/* je fais apparaitre et place les textes du 2eme Blob */
+.blob2:hover .textDemarche1 h2 {
+  width: 100%;
+  position: relative;
+  top: -25vw;
+  left: 10vw;
+  text-align: left;
+}
+.blob2:hover .textDemarche1 ul {
+  top: -24vw;
+
+  opacity: 1;
+  transition-delay: 2s;
+}
+.blob2:hover .textDemarche2 h2 {
+  opacity: 1;
+  transition-delay: 3s;
+  /* transition-delay: 2.5s; */
+}
+.blob2:hover .textDemarche2 ul {
+  opacity: 1;
+  transition-delay: 4s;
+  /* transition-delay: 3s; */
+}
+
+/* je place et normalise les textes du blob Audit */
+.textAudits {
+  color: var(--color-yellow);
+}
+
+.textAudits h2 {
+  position: relative;
+  top: -18vw;
+  left: 40%;
+}
+
+.textAudits p {
+  width: 80%;
+  position: relative;
+  top: -17vw;
+  left: 10%;
+}
+
+.blob1 {
+  margin-left: 25%;
+}
+
+.blob1 svg path {
+  fill: #084c64;
+}
+
+.blob1 svg path {
+  box-shadow: 8px 11px 20px 3px #000000;
+}
+
+.blob2 svg path {
+  fill: #ebbd04f0;
+  transition: d 1s;
+}
+
+.blob2:hover svg path {
+  d: path(
+    "m 426.00994,42.402297 c 60.77062,-29.785751 135.41777,2.797585 202.85496,8.497083 72.5508,6.131677 143.86907,28.265222 216.67562,27.615519 73.6997,-0.657674 145.10113,-32.620763 218.79988,-31.864061 60.2968,0.619098 118.1388,29.599989 178.4387,29.73979 75.3175,0.174618 147.7388,-35.018044 223.0485,-36.112602 59.421,-0.863631 123.4524,-2.931525 176.744,23.366978 3.4114,1.68345 6.2359,4.736868 8.0698,8.069752 18.7146,34.010984 29.1888,74.992194 25.4912,113.635594 -4.0472,42.29813 -47.066,74.52444 -50.9824,116.83489 -3.4821,37.61839 35.9053,74.11825 25.4912,110.43374 -1.0486,3.65674 -4.4707,6.83767 -8.0698,8.06976 -48.0795,16.45934 -100.497,-21.64672 -151.2528,-19.11844 -69.6524,3.46957 -134.1943,46.08049 -203.93,46.73396 -75.9606,0.7118 -147.0984,-45.27823 -223.0484,-46.73396 -76.11807,-1.45896 -149.04383,38.93272 -225.1727,38.23688 -76.37871,-0.69813 -148.81692,-40.48756 -225.17269,-42.48542 -58.20844,-1.52303 -117.94647,41.99375 -173.11517,23.36698 -3.60423,-1.21691 -6.43172,-4.63637 -8.06975,-8.06976 -17.47119,-36.62058 -16.0744,-80.61713 -12.74562,-121.05509 3.49521,-42.45965 38.21866,-80.81499 33.98833,-123.20771 -3.58425,-35.91822 -51.55211,-60.64547 -48.85823,-96.641424 0.89435,-11.950366 10.05462,-24.038248 20.81537,-29.312459 z"
+  );
+  transition: d 2.5s;
+}
+
+.blob3 {
+  margin-right: 25%;
+}
+
+.blob3 svg path {
+  fill: #084c64;
+}
+
+/* .blob1 {
+  padding-top: 5rem;
+} */
+
+/* .blob3 {
+  padding-bottom: 5rem;
+} */
+.blob2 {
+  position: relative;
+  top: -5vw;
+  z-index: 1;
+}
+.blob3 {
+  position: relative;
+  top: -10vw;
+}

@@ -1,0 +1,17 @@
+{% extends 'baseAdmin.html.twig' %}
+
+
+{% block stylesheetsAdmin %}
+    <link rel="stylesheet" href="{{asset("css/adminFormFormation.css")}}">
+{% endblock %}
+{% block main %}
+    <h1>Créer une nouvelle formation</h1>
+
+    {{ include('admin/formation/_form.html.twig') }}
+
+    <a href="{{ path('app_formation_index') }}">Revenir à la liste des formations</a>
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{asset("js/adminFormation.js")}}"></script>
+{% endblock %}

@@ -1,0 +1,58 @@
+{% extends "base.html.twig" %}
+{% block stylesheets %}
+	<link rel="stylesheet" href="{{ asset('css/actualites.css') }}">
+{% endblock %}
+{% block main %}
+
+<div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="false">
+  <div class="carousel-indicators">
+
+  {% for actu  in news %}
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="{{ loop.index - 1 }}" {{ loop.index == 1 ?'class="active"' :'' }} aria-current="true" aria-label="{{ actu.title }} "></button>
+{% endfor %}
+  </div>
+
+  {% for actu  in news %}
+      <div class="carousel-inner">
+    <div class="carousel-item {{ loop.index == 1 ? "active" :""}}">
+    {% if actu.image %}
+      <img src="{{ asset("newsPictures/" ~ actu.image )}}" class="d-block w-100" alt="http://via.placeholder.com/640x360">
+
+      {% else %}
+      <img src="{{ asset("img/bg-abstract.jpg")}}" class="d-block w-100" alt="http://via.placeholder.com/640x360">
+    {% endif %}
+
+      <div class="carousel-caption overflow-auto">
+        <h5>{{ actu.title}}</h5>
+        <p>{{ actu.description }}</p>
+      </div>
+    </div>
+
+  {% endfor %}
+
+
+
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+{% endblock %}
+{% block javascripts %}
+	  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"
+    integrity="sha512-Pa4Jto+LuCGBHy2/POQEbTh0reuoiEXQWXGn8S7aRlhcwpVkO8+4uoZVSOqUjdCsE+77oygfu2Tl+7qGHGIWsw=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  ></script>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.2.0/mdb.min.js"
+    integrity="sha512-Wq5ip5NUbm4Ka2BqR/KkJIJdRFQAdpVluNIENMHHPJysUkBtIR1MmqKu2tfPZvuJdm4q5/KQDgqLSR6BL23pFw=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  ></script>
+{% endblock %}

@@ -1,0 +1,21 @@
+.form-control,
+.themes,
+#formation_learningCategories,
+.tox *,
+.tox {
+  background-color: var(--color-yellow) !important;
+  margin: 1rem 0;
+}
+.tox * {
+  margin: auto;
+}
+input {
+  /* width: 35vw !important; */
+  margin: 1rem;
+}
+input[type="radio"] {
+  width: auto !important;
+}
+.themes {
+  padding: 1rem;
+}

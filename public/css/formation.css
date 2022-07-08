@@ -1,0 +1,290 @@
+body {
+  background: #ffffff;
+}
+
+main li {
+  list-style-type: none;
+}
+
+main .elipse {
+  background-color: var(--color-blue);
+  height: 120px;
+  margin: 100px auto 0px;
+  border-radius: 0 0 50% 50%/ 0 0 100% 100%;
+  position: relative;
+  top: -100px;
+  -webkit-box-shadow: 0px 5px 6px 2px #000000;
+  box-shadow: 0px 5px 6px 2px #000000;
+}
+/*
+###########################
+###########################
+###########################
+###########################
+###########################
+
+Block stats 
+
+###########################
+###########################
+###########################
+###########################
+*/
+main .stats p:nth-child(2) {
+  color: var(--color-yellow);
+  font-size: 2rem;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+/*
+###########################
+###########################
+###########################
+###########################
+###########################
+
+Block prerequis
+
+###########################
+###########################
+###########################
+###########################
+*/
+main .boite_liste_prerequis,
+main .prerequis input {
+  -webkit-box-shadow: 0px 5px 6px 2px #000000;
+  box-shadow: 0px 5px 6px 2px #000000;
+}
+
+main .prerequis input {
+  width: 100%;
+  padding: 5px;
+  /* color: white; */
+  height: 3rem;
+  border-radius: 2.5rem;
+  border: none;
+  /* font-size: 1.2em; */
+  /* font-weight: bold; */
+  transition: 2s;
+}
+main .boite_liste_prerequis {
+  background-color: var(--color-yellow);
+  /* color: var(--color-blue); */
+  border-radius: 1rem;
+}
+
+main .boite_liste_prerequis i {
+  font-size: 2rem;
+}
+
+main .boite_liste_prerequis i::after {
+  content: "\00a0";
+}
+
+main .download {
+  background-color: var(--color-red);
+}
+
+main .download:hover {
+  transform: scale(1.2);
+}
+
+main .contact {
+  -webkit-box-shadow: 0px 5px 6px 2px #000000;
+  box-shadow: 0px 5px 6px 2px #000000;
+  background-color: var(--color-yellow);
+  transition: 2s;
+  border-radius: 2.5rem;
+  height: 3rem;
+}
+
+main .contact:hover {
+  transform: scale(1.2);
+  background-color: var(--color-yellow);
+}
+/*
+###########################
+###########################
+###########################
+###########################
+###########################
+
+Block formation descriptif 
+
+###########################
+###########################
+###########################
+###########################
+*/
+
+main li.nav-item {
+  /* margin: 0 10px; */
+  /* height: 100px; */
+  background: var(--color-blue);
+}
+main .table.table-striped {
+  background-color: var(--color-blue);
+  border-radius: 5px;
+}
+
+main td {
+  color: #ffffff;
+}
+
+main ul#myTab.nav.nav-tabs {
+  /* margin-left: 6%; */
+  height: 40px;
+  border: none;
+}
+
+/* responsive 998 px */
+
+/* responsive tablette */
+
+/* Partie fiche compétence */
+main button {
+  color: white !important;
+  background: var(--color-dark-blue) !important;
+  border: none !important;
+  border-radius: 10px 10px 0px 0px;
+  position: relative;
+  height: auto;
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: black;
+}
+
+main .nav-tabs button.active {
+  background-color: var(--color-blue) !important;
+  height: 100%;
+  filter: drop-shadow(0px 5px 1px var(--color-dark-blue-admin));
+}
+
+main .nav-tabs,
+main .nav-item {
+  background: var(--color-dark-blue) !important;
+}
+
+main .nav-tabs {
+  height: auto;
+  flex-wrap: nowrap;
+}
+main button.active::after {
+  content: attr(div);
+  position: absolute;
+  left: 0px;
+  top: 40px;
+  width: 100%;
+  background-color: var(--color-blue);
+  padding: 12px;
+  -webkit-clip-path: polygon(100% 0, 0 0, 50% 100%);
+  clip-path: polygon(100% 0, 0 0, 50% 100%);
+}
+
+main .tab-pane {
+  max-height: 50vh;
+  background-color: var(--color-blue);
+  color: white;
+  overflow: auto;
+}
+
+@media screen and (max-width: 992px) {
+  main {
+    width: 100%;
+    margin: auto;
+  }
+  .nav-tabs {
+    flex-direction: column;
+    align-items: center;
+  }
+  button.active::after {
+    content: none;
+  }
+
+  .nav-tabs button {
+    filter: none;
+    width: 100vw;
+  }
+
+  .nav-tabs button.active {
+    filter: none;
+  }
+  .boite_formations {
+    width: 100vw;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-dark-blue-admin);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-dark-blue);
+  border-radius: 10px;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.5);
+}
+
+main .sticker {
+  position: relative;
+  /* width: 160px; */
+  /* height: 70px; */
+  /* float: left; */
+  /* font-size: 1.5em;
+  font-weight: bold; */
+  /* margin: 30px 10px 10px -90px; */
+  background-color: #fcf59b;
+  border-radius: 0px 10px 250px / 0 200px 55px 250px;
+  -webkit-box-shadow: -3px 5px 12px 0 rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: -3px 5px 12px 0 rgba(0, 0, 0, 0.3);
+  box-shadow: -3px 5px 12px 0 rgba(0, 0, 0, 0.3);
+}
+
+/* Text on the sticker*/
+main .text {
+  text-align: center;
+  display: block;
+  padding: 20px;
+  /* font-size: 80%; */
+  font-family: "Shadows Into Light", cursive;
+}
+
+/* Shadow under sticker */
+main .sticker::before {
+  content: "";
+  display: block;
+  position: absolute;
+  z-index: -1;
+  width: 90%;
+  height: 20px;
+  -webkit-box-shadow: 3px 17px 6px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 3px 17px 6px rgba(0, 0, 0, 0.3);
+  box-shadow: 3px 17px 6px rgba(0, 0, 0, 0.3);
+  bottom: 15px;
+  right: 5px;
+  -ms-transform: skew(-10deg, 2deg);
+  -webkit-transform: skew(-10deg, 2deg);
+  transform: skew(-10deg, 2deg);
+}
+
+/* Curl */
+main .sticker::after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 0;
+  height: 0;
+  right: 8px;
+  bottom: 1px;
+  border-top: 10px solid rgb(156, 166, 61);
+  border-right: 10px solid transparent;
+  -webkit-transform: skew(-55deg, 10deg);
+  transform: skew(-55deg, 10deg);
+}
+
+main .boite_liste_prerequis li {
+  font-weight: bold;
+  margin-top: 10px;
+}

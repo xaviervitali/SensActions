@@ -1,0 +1,33 @@
+{% extends "base.html.twig" %}
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/adminFormations.css') }}">
+{% endblock %}
+{% block header %}
+    menu admin
+{% endblock %}
+
+
+{% block main %}
+     <section>
+        <article class="titre d-flex justify-content-center">
+          <button type="button" class="btn col fs-2">
+            Ajouter un thème de formation
+          </button>
+          <button type="button" class="btn col fs-2">
+            Ajouter une formation
+          </button>
+        </article>
+        <article class="themes">
+          <!-- Block généré par le JS -->
+        </article>
+      </section>
+{% endblock %}
+
+
+{% block footer %}
+    footer admin
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset("js/adminFormations.js")}}"></script>
+{% endblock %}

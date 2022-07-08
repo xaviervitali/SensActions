@@ -1,0 +1,294 @@
+{% extends "base.html.twig" %}
+{% block stylesheets %}
+<link rel="stylesheet" href="{{asset('css/formation.css')}}">
+{% endblock %}
+{% block main %}
+     <section>
+      <article>
+        <div >
+          <div class="elipse d-flex justify-content-center align-items-center text-white mx-auto " >
+
+            <h1 class="text-center">{{formation.name}}</h1>
+          </div>
+        </div>
+       
+          <div >
+
+              <div class="page">
+                <div class="sticker p-3 text-center">
+                  <p class="text"><i class="fa-solid fa-circle-info me-3 fs-2"></i></p>
+                  <p>Formation mise en ligne le {{ formation.updatedAt | format_datetime('full', 'none', locale='fr') }}</p>
+                  <p>{{ formation.moreInfo}}</p>
+                </div>
+            </div>
+          </div>
+      
+
+
+      
+
+<!-- satisfaction rating -->
+
+      {% if not formation.participants  is null and not formation.satisfaction  is null and not formation.successRate  is null %}
+
+        <div class="stats d-flex justify-content-around  align-items-center mt-5 ">
+          <div class="text-center">
+            <p>Personnes formées</p>
+            <p class="nbOfStudents">{{ formation.participants}}</p>
+          </div>
+
+            <div class="text-center">
+              <p>Satisfaction</p>
+              <p class="rating">
+                <i class="fa-regular fa-star"></i>
+                <i class="fa-regular fa-star"></i>
+                <i class="fa-regular fa-star"></i>
+                <i class="fa-regular fa-star"></i>
+                <i class="fa-regular fa-star"></i>
+
+                <!-- <i class="fa-regular fa-star"></i>
+                <i class="fa-regular fa-star"></i> -->
+              </p>
+   
+                
+              </div>
+              <div class="text-center">
+                <p >Taux de réussite</p>
+                <p><span class="successRate"></span> {{ formation.successRate}}%</p>
+              </div>
+
+          
+        </div>
+        {% endif %}
+      </article>
+      
+      <article class=" d-lg-flex justify-content-around  my-5 prerequis">
+        
+        
+        
+        <div class="boite_liste_prerequis col-lg-5 p-3">
+          
+          <ul>
+            <li>
+              <i class="fa-solid fa-person"></i> Public</li>
+            <p>{{ formation.public}}</p>
+
+
+
+            <li class="prerequis santé"><i class="fa-brands fa-accessible-icon"></i>Handicap</li>
+            <p class="texte_handicap">{{ formation.handicap}}</p>
+
+
+
+            <li ><i class="fa-solid fa-book-open"></i>Pré-requis</li>
+            <p >{{ formation.prerequisite}}</p>
+
+            <li ><i class="fa-solid fa-hourglass"></i>Durée</li>
+            <p >{{ formation.duration}}</p>
+            
+            <li ><i class="fa-solid fa-graduation-cap"></i>Intervenants</li>
+            <p >{{ formation.Intervenants}}</p>
+
+
+            <li><i class="fa-solid fa-user-gear" id="handicap"></i>Pédagogie</li>
+            <p>{{ formation.method}}
+              </p>
+          </ul>
+
+        </div>
+        <div class="links d-flex flex-column justify-content-around col-lg-5">
+        <input type="button" value="Télécharger la plaquette" onclick="window.location='{{asset("files/" ~ formation.file)}}';"    class="download  my-lg-0 my-2">
+        <div class="contact d-flex justify-content-center align-items-center">
+        <a  class="my-2 my-lg-0 text-decoration-none text-dark" href="{{ path("contact")}}">Contactez-nous</a>
+        </div>
+      </div>
+
+     
+      </article>
+     </section>
+
+<!-- tableau formations-->
+
+<section class="boite_formations">
+
+<!-- <h1 class="my-5 text-center">Nos Formations</h1> -->
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+      <li class="nav-item" role="presentation">
+        <button
+          class="nav-link active"
+          id="objectif-tab"
+          data-bs-toggle="tab"
+          data-bs-target="#objectif-tab-pane"
+          type="button"
+          role="tab"
+          aria-controls="objectif-tab-pane"
+          aria-selected="true"
+        >
+          Objectif
+        </button>
+      </li>
+
+<!-- compétence -->
+
+      <li class="nav-item" role="presentation">
+        <button
+          class="nav-link"
+          id="competence-tab"
+          data-bs-toggle="tab"
+          data-bs-target="#competence-tab-pane"
+          type="button"
+          role="tab"
+          aria-controls="competence-tab-pane"
+          aria-selected="false"
+        >
+          Compétences  
+        </button>
+<!-- validation  -->
+      </li>
+      <li class="nav-item" role="presentation">
+        <button
+          class="nav-link"
+          id="validation-tab"
+          data-bs-toggle="tab"
+          data-bs-target="#validation-tab-pane"
+          type="button"
+          role="tab"
+          aria-controls="validation-tab-pane"
+          aria-selected="false"
+        >
+          Validation
+        </button>
+      </li>
+      
+<!-- onglet formation /programme-->
+<li class="nav-item" role="presentation">
+  <button
+    class="nav-link"
+    id="formation-tab"
+    data-bs-toggle="tab"
+    data-bs-target="#formation-tab-pane"
+    type="button"
+    role="tab"
+    aria-controls="formation-tab-pane"
+    aria-selected="false"
+  >
+    Programme
+  </button>
+</li>
+     
+
+
+
+<!-- :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: -->
+
+
+      {# <li class="nav-item" role="presentation">
+        <button
+          class="nav-link position-relative"
+          id="comment-tab"
+          data-bs-toggle="tab"
+          data-bs-target="#comment-tab-pane"
+          type="button"
+          role="tab"
+          aria-controls="comment-tab-pane"
+          aria-selected="false"
+        >
+          Avis et Commentaires 
+          <span
+          class="position-absolute top-0 start-lg-100  start-75
+           translate-middle badge rounded-pill bg-primary nbOfComments"
+        >
+          99+
+          <span class="visually-hidden">unread messages</span>
+        </button>
+      </li> #}
+
+      
+    </ul>
+
+<!-- :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: -->
+
+
+
+    <div class="tab-content" id="myTabContent">
+      <div
+        class="tab-pane fade show active p-lg-5 p-2 "
+        id="objectif-tab-pane"
+        role="tabpanel"
+        aria-labelledby="objectif-tab"
+        tabindex="0"
+      >
+ {{ formation.goal}}
+      </div>
+      <div
+        class="tab-pane fade p-lg-5 p-2 "
+        id="method-tab-pane"
+        role="tabpanel"
+        aria-labelledby="method-tab"
+        tabindex="0"
+      >
+      </div>
+      <div
+        class="tab-pane fade p-lg-5 p-2 "
+        id="validation-tab-pane"
+        role="tabpanel"
+        aria-labelledby="validation-tab"
+        tabindex="0"
+      >
+      {{ formation.validation}}
+      </div>
+
+<!-- onglet competence -->
+
+      <div
+        class="tab-pane fade p-lg-5 p-2 "
+        id="competence-tab-pane"
+        role="tabpanel"
+        aria-labelledby="competence-tab"
+        tabindex="0"
+      >
+{{ formation.competences}}
+      {{ formation.program}}
+      </div>
+
+<!-- onglet programme/formation -->
+<div
+        class="tab-pane fade p-lg-5 p-2 "
+        id="formation-tab-pane"
+        role="tabpanel"
+        aria-labelledby="formation-tab"
+        tabindex="0"
+      >      {{ formation.program | raw }}
+
+      </div>
+      <div
+        class="tab-pane fade p-lg-5 p-2    overflow-auto"
+        id="comment-tab-pane"
+        role="tabpanel"
+        aria-labelledby="comment-tab"
+        tabindex="0"
+      >
+        <table class="table table-striped">
+          <thead>
+            <th>De</th>
+            <th>Le</th>
+            <th>
+              Commentaire
+
+              </span>
+            </th>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+
+</section>
+{% endblock %}
+{% block javascripts %}
+
+<script>
+const satisfaction = {{ formation.satisfaction}}
+</script>
+<script src="{{ asset('js/formation.js') }}"></script>
+{% endblock %}

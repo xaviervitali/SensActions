@@ -1,0 +1,159 @@
+.themes article {
+  border-radius: 30px;
+  position: relative;
+  width: 60vw;
+  padding: 50px;
+}
+
+.themes article:nth-child(5n + 2) {
+  background-color: var(--color-yellow-admin);
+}
+
+.themes article:nth-child(5n + 2) h2,
+.themes article:nth-child(5n + 2) .icon {
+  color: var(--color-yellow);
+}
+
+/**** deuxieme bloc ****/
+.themes article:nth-child(5n + 3) {
+  background-color: var(--color-grey-admin);
+}
+
+.themes article:nth-child(5n + 3) h2,
+.themes article:nth-child(5n + 3) .icon {
+  color: var(--color-grey);
+}
+
+/**** troisieme bloc ****/
+
+.themes article:nth-child(5n + 4) {
+  background-color: var(--color-blue-admin);
+}
+
+.themes article:nth-child(5n + 4) h2,
+.themes article:nth-child(5n + 4) .icon {
+  color: var(--color-blue);
+}
+
+/**** quatrieme  bloc ****/
+
+.themes article:nth-child(5n) {
+  background-color: var(--color-dark-blue-admin);
+}
+.themes article:nth-child(5n) h2,
+.themes article:nth-child(5n) .icon {
+  color: var(--color-dark-blue);
+}
+
+/**** cinquieme  bloc ****/
+
+.themes article:nth-child(5n + 1) {
+  background-color: var(--color-red-admin);
+}
+
+.themes article:nth-child(5n + 1) h2,
+.themes article:nth-child(5n + 1) .icon {
+  color: var(--color-red);
+}
+
+li {
+  padding-bottom: 30px;
+  margin-top: 10px;
+}
+
+.icon {
+  position: absolute;
+  right: 5%;
+  top: -25px;
+}
+
+.themes article:nth-child(2n) {
+  margin-right: auto;
+}
+.themes article:nth-child(2n + 1) {
+  margin-left: auto;
+}
+.themes {
+  border: 1px solid grey;
+  border-radius: 30px;
+  padding: 50px;
+  margin-top: 30px;
+}
+.iconsuprime {
+  color: var(--color-red);
+  margin: 0 1vw;
+}
+ul {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  list-style: none;
+  /* grid-gap: 10px; */
+  /* grid-auto-rows: minmax(100px, auto); */
+}
+.fa-trash-can {
+  color: var(--color-red);
+}
+
+i {
+  margin: 0 1vw;
+}
+
+/* .titre button {
+  background-color: var(--color-dark-blue-admin);
+  margin: 0 1vw;
+  padding: 1vw;
+  border-radius: 30px;
+} */
+@media screen and (max-width: 992px) {
+  .themes article {
+    width: 100%;
+  }
+}
+
+label,
+.titre > a {
+  background-color: var(--color-dark-blue-admin);
+  margin: 0 1vw;
+  padding: 1vw;
+  border-radius: 30px;
+  height: auto;
+
+  display: block;
+  width: 40vw;
+  min-height: 150px;
+}
+
+.titres > input,
+.titres form {
+  display: none;
+}
+
+:checked + div + form {
+  display: block;
+  /* justify-content: space-around;
+  align-items: center; */
+}
+
+.fa-trash-can:hover {
+  color: black;
+}
+
+#learning_category_formations label,
+.titres form label {
+  min-height: 0;
+  background-color: none;
+  border-radius: 0;
+  width: auto;
+  padding: 0;
+  margin: 0;
+  display: inline;
+  background-color: transparent;
+}
+
+#learning_category_formations label {
+  margin-right: 1vw;
+  background-color: white;
+}
+#learning_category_formations :checked + label {
+  color: var(--color-blue);
+}

@@ -1,0 +1,43 @@
+footer {
+  background-color: var(--color-dark-blue);
+  color: var(--color-dark-blue);
+}
+
+footer .yellowBlock {
+  background-color: var(--color-yellow);
+  -webkit-clip-path: polygon(0 8%, 100% 8%, 89% 95%, 0 90%);
+  clip-path: polygon(0 7%, 100% 7%, 90% 90%, 0 90%);
+}
+
+footer img {
+  width: 100%;
+  height: 100px;
+  object-fit: contain;
+  margin-top: 10%;
+}
+
+footer a,
+footer li {
+  color: var(--color-dark-blue);
+  text-decoration: none;
+  font-size: 18px;
+}
+
+footer .mentions {
+  color: #dd5751;
+}
+
+footer i {
+  font-size: 2.5rem;
+}
+@media (max-width: 992px) {
+  footer .yellowBlock {
+    background-color: var(--color-yellow);
+    -webkit-clip-path: polygon(0 0, 100% 21%, 100% 100%, 0% 100%);
+    clip-path: polygon(0 0, 100% 21%, 100% 100%, 0% 100%);
+  }
+}
+
+footer ul {
+  padding: 0;
+}

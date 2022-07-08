@@ -1,0 +1,106 @@
+@import url("https://fonts.googleapis.com/css2?family=Smooch&display=swap");
+
+main {
+  width: 100%;
+  color: var(--color-dark-blue);
+}
+
+/* *************************** */
+/* la section 1 (premier blob) */
+/* *************************** */
+
+main section article {
+  position: relative;
+  margin: auto;
+  text-align: center;
+  width: 40vw;
+}
+main section article {
+  top: -40vw;
+}
+
+main section article p {
+  font-size: 1vw;
+  margin: 1vw 0;
+}
+
+main section article p:first-of-type {
+  font-size: 1.3vw;
+}
+
+main section:first-child article {
+  height: 0px;
+}
+
+/* *************************** */
+/* la section 2 (les 2 cartes) */
+/* *************************** */
+
+main section:nth-child(2) {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+main section:nth-child(2) img {
+  border-radius: 50%;
+  filter: grayscale();
+  width: 0px;
+  margin-bottom: 10px;
+  border: solid 5px var(--color-dark-blue);
+
+  transition: 2s;
+}
+
+.anne,
+.marielle {
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 250px;
+  height: 270px;
+  border-radius: 20px;
+
+  transition: 1s;
+}
+
+.marielle {
+  color: var(--color-yellow);
+  background-color: var(--color-dark-blue);
+  border: solid 2px var(--color-yellow);
+}
+.anne {
+  color: var(--color-dark-blue);
+  background-color: var(--color-yellow);
+  border: solid 2px var(--color-dark-blue);
+}
+.marielle:hover {
+  color: var(--color-dark-blue);
+  background-color: var(--color-yellow);
+  border: solid 2px var(--color-dark-blue);
+}
+
+.anne:hover {
+  color: var(--color-yellow);
+  background-color: var(--color-dark-blue);
+  border: solid 2px var(--color-yellow);
+}
+
+.anne h3,
+.marielle h3 {
+  font-family: "Smooch", cursive;
+  font-size: 35px;
+}
+
+.anne:hover img,
+.marielle:hover img {
+  width: 100px;
+  border: solid 2px var(--color-yellow);
+  transform: rotateY(3.142rad);
+}
+
+/* *************************** */
+/* la section 3 (Dernier blob) */
+/* *************************** */
