@@ -6,15 +6,15 @@
 <p class="text-center px-2" style="letter-spacing: 3px; line-height: 30px;">Le cabinet de conseil Sens Actions à Marseille propose un important catalogue de formations destiné aux préventeurs en entreprise, aux médecins du travail, aux Intervenants en Prévention des Risques Professionnels (IPRP), aux membres du CHSCT (CSE), aux responsables des ressources humaines, aux managers, aux formateurs et plus généralement à tous les acteurs impliqués dans le projet Santé au travail de son organisation.</p>
 {% include "public/recherche.html.twig" %}
 	<section class="d-none d-lg-flex">
-		{% set learningCategories = learningCategories | filter(lc => (lc.formations | length) > 0) %}
-
+		{% set learningCategories = learningCategories | filter(lc => (lc | length) > 0) %}
 
 
 		{% for learningCategory in learningCategories  %}
+
 				<article class="tab" style="z-index: {{ 100 - loop.index}}">
 					<article class="tabContent">
 			
-					{% for formation in learningCategory.formations %}
+					{% for formation in learningCategory.formations | sort((a,b)=>a.name > b.name)%}
 						<li><a href='{{path("app_formation_show", {slug: formation.slug})}}'>{{formation.name}}</a></li>
 					{% endfor %}
 					</article>

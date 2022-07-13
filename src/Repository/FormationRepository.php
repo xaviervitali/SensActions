@@ -70,7 +70,7 @@ class FormationRepository extends ServiceEntityRepository
     {
 
         return $this->createQueryBuilder('f')
-            ->andWhere('f.goal LIKE :val OR f.name LIKE :val')
+            ->andWhere('f.goal LIKE :val OR f.name LIKE :val AND f.enabled=true')
             ->setParameter('val', "%" . $value . "%")
             ->orderBy('f.id', 'ASC')
             ->getQuery()

@@ -6,6 +6,10 @@
     {{ form_widget(form.competences) }}
     {{ form_widget(form.validation) }}
     {{ form_widget(form.program) }}
+    <div class="form-check d-flex justify-content-evenly">
+      {{ form_row(form.certification) }}
+      {{ form_row(form.cpf) }}
+    </div>
     {{ form_widget(form.uploadedFile) }}
 </fieldset>
   <fieldset>
@@ -15,31 +19,36 @@
 
   <fieldset>
     <legend>Résumé de la formation</legend>
-<div class="d-flex justify-content-between flex-wrap">
+    <div class="d-flex justify-content-between flex-wrap">
 
-    {{ form_widget(form.public) }}
-    {{ form_widget(form.handicap) }}
-    {{ form_widget(form.prerequisite) }}
-    {{ form_widget(form.duration) }}
-    {{ form_widget(form.intervenants) }}
-    {{ form_widget(form.method) }}
+        {{ form_widget(form.public) }}
+        {{ form_widget(form.handicap) }}
+        {{ form_widget(form.prerequisite) }}
+        {{ form_widget(form.duration) }}
+        {{ form_widget(form.intervenants) }}
+        {{ form_widget(form.method) }}
 
-</div>
-</fieldset>
+    </div>
+    </fieldset>
   <fieldset>
     <legend>Statistiques de la formation</legend>
-<div class="d-flex justify-content-between">
-    {{ form_widget(form.participants) }}
-    {{ form_widget(form.satisfaction) }}
-    {{ form_widget(form.successRate) }}
-</div>
-</fieldset>
+    <div class="d-flex justify-content-between">
+        {{ form_widget(form.participants) }}
+        {{ form_widget(form.satisfaction) }}
+        {{ form_widget(form.successRate) }}
+    </div>
+  </fieldset>
 
 
-     <fieldset>
+  <fieldset>
     <legend>Thèmes de la formation</legend>
     {{ form_widget(form.learningCategories) }}
 </fieldset>
-
+  <fieldset>
+    <legend>Statut de la formation</legend>
+    <div class="form-check">
+      {{ form_row(form.enabled) }}
+    </div>
+</fieldset>
     <button class="btn btn-success" type="submit">{{ button_label|default('Enregistrer le formation') }}</button>
 {{ form_end(form) }}

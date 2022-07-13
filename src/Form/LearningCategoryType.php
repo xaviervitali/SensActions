@@ -16,7 +16,7 @@ class LearningCategoryType extends AbstractType
     {
         $builder
             ->add('name', TextType::class, ["label" => false, "attr" => ["class" => "form-control mx-auto  my-3", "placeholder" => "Nom du thème"]])
-            ->add('formations', EntityType::class, ["class" => Formation::class, "choice_label" => "name", "expanded" => true, "multiple" => true, "attr" => ["class" => "form-control mx-auto  my-3 "]]);
+            ->add('formations', EntityType::class, ["class" => Formation::class, "choice_label" => "name", "expanded" => true, "multiple" => true, "label" => false, "attr" => ["class" => "form-control mx-auto  my-3 "]]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void

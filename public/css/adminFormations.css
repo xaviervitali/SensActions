@@ -90,6 +90,10 @@ ul {
   /* grid-gap: 10px; */
   /* grid-auto-rows: minmax(100px, auto); */
 }
+
+.alert ul {
+  list-style: unset;
+}
 .fa-trash-can {
   color: var(--color-red);
 }

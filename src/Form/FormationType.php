@@ -7,6 +7,7 @@ use App\Entity\LearningCategory;
 use phpDocumentor\Reflection\PseudoTypes\Numeric_;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\PercentType;
@@ -36,6 +37,9 @@ class FormationType extends AbstractType
             ->add('method', TextType::class, ["label" => false, "attr" => ["placeholder" => "Pédagogie", "class" => "form-control "]])
             ->add('validation', TextareaType::class, ["label" => false, "attr" => ["placeholder" => "Validation", "class" => "form-control "]])
             ->add('competences', TextareaType::class, ["label" => false, "attr" => ["placeholder" => "Compétences", "class" => "form-control "]])
+            ->add('certification', CheckboxType::class, ['required' => false, "label" => "Certifiante", "attr" => ["disabled" => "disabled", "class" => "form-check-input"]])
+            ->add('cpf', CheckboxType::class, ['required' => false, "label" => "Eligible au CPF", "attr" => ["disabled" => "disabled", "class" => "form-check-input"]])
+            ->add('enabled', CheckboxType::class, ['required' => false, "label" =>  "Activée", "attr" => ["class" => "form-check-input"]])
             ->add('uploadedFile', VichFileType::class, [
                 'required' => false,
                 "delete_label" => "Supprimer le fichier",

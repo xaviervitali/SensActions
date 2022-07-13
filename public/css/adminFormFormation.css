@@ -9,9 +9,27 @@
 .tox * {
   margin: auto;
 }
+
+/* .form-check {
+  padding: 1rem;
+} */
 input {
   /* width: 35vw !important; */
   margin: 1rem;
+}
+.form-check {
+  background-color: var(--color-yellow) !important;
+  /* height: 3rem; */
+}
+.form-check > div {
+  padding: 1rem;
+}
+.form-check label {
+  font-size: 1.2rem;
+  /* color: var(--color-dark-blue); */
+}
+.form-check input {
+  /* margin: 0 1rem !important; */
 }
 input[type="radio"] {
   width: auto !important;

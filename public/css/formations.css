@@ -88,7 +88,7 @@ section .tab {
   width: var(--min-tab-width);
   display: flex;
   position: relative;
-  transition: width ease-in-out 0.2s;
+  transition: width ease-in-out 0.5s;
 
   /* justify-content: space-between; */
 }
@@ -123,7 +123,7 @@ section .tab:hover {
 }
 
 .tabTitle {
-  position: relative;
+  position: absolute;
   clip-path: polygon(0 0, 100% 10%, 100% 90%, 0% 100%);
   text-transform: uppercase;
   display: flex;
@@ -135,6 +135,7 @@ section .tab:hover {
   height: 30vh;
   text-align: center;
   color: white;
+  right: -50px;
   transition: top ease-in-out 0.2s;
 }
 .tabTitle h2 {
@@ -155,12 +156,14 @@ section .tab:hover {
 .tab:hover .tabTitle {
   align-items: flex-start;
   clip-path: none;
-  top: 2vh !important;
-  right: var(--min-tab-width) !important;
+  top: -10vh !important;
+  right: calc(var(--min-tab-width) * 1.5) !important;
   /* width: var(--min-tab-width) !important; */
-
   /* word-break: break-all; */
-  transition: top ease-in-out 0.2s;
+  transition: top ease-in-out 1s;
+  mix-blend-mode: overlay;
+
+  background: transparent;
 }
 
 .tab:hover .tabContent {

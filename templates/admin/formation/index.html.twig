@@ -5,7 +5,9 @@
 {% endblock %}  
 {% block main %}
 <pre>
-    {% set orphans = (formations | filter(e=>(e.learningCategories | length == 0)) ) %}
+    {% set orphans = (formations | filter(e=>(e.learningCategories | length == 0 and  e.enabled)) ) %}
+    {% set disableds = (formations | filter(e=>( not e.enabled)) ) %}
+
 </pre>
      <section>
 
@@ -14,12 +16,13 @@
             <label class="titres d-flex flex-column justify-content-center align-items-betwe">
                 <input type="checkbox"  />
                 <div >
-                <h2 class="text-center"> Ajouter un thème de formation</h2>
+                <h2 class="text-center">Ajouter un thème de formation</h2>
                 </div>
                     {{ form_start(form, {attr: {class:"w-100"}})}}
                     <div class="">
                     {{ form_widget(form.name)}}
-                    {{ form_row(form.formations)}}
+
+                    {{ form_row(form.formations, {attr:{class: form.formations | length > 0 ? "":"d-none"}})}}
                     </div>
                     <button class="btn btn-success btn-block">Valider</button>
                     {{ form_end(form)}}
@@ -30,9 +33,19 @@
           </div>
           </a> 
         </article>
+        {% if disableds %}
+            <div class="alert alert-info my-5 p-3">
+                <h4>Liste des formations désactivées</h4>
+                <ul>
+                    {% for disabled in disableds %}
+                        <li><a href="{{ path('app_formation_edit', {id: disabled.id})}}">{{ disabled.name }} <i class="fa-solid fa-pencil"></i></a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endif %}
              {% if orphans %}
            <article class="alert alert-warning my-5 p-3" role="alert">
-                Attention des formations n'ont pas encore été classées :
+                Attention des formations n'ont pas encore été classées dans un thème :
                 <ul>
                 {% for orphan in orphans %}
                     <li><a href="{{ path('app_formation_edit', {id: orphan.id})}}"> {{ orphan.name }}</a></li>
@@ -43,6 +56,7 @@
      {% endif %}
         <article class="themes">
         {% for theme in learningCategory | sort((a,b)=>(a.name | lower > b.name | lower)) %}
+
             <article class="my-5">
                 <div class="cat">
                     <div class="col text-center">
@@ -59,7 +73,7 @@
                             </pre>
 
                            {% for formation in theme.formations %}
-                            <li><a href="{{path("app_formation_show", {slug: formation.slug})}}">{{ formation.name}}</a> <a href="{{ path('app_formation_edit', {id: formation.id})}}"><i class="fa-solid fa-pencil"></i></a></li>
+                            <li><a href="{{path("app_formation_show", {slug: formation.slug})}}">{{ formation.name}}  <i class="fa-solid fa-eye"></i></a> <a href="{{ path('app_formation_edit', {id: formation.id})}}"><i class="fa-solid fa-pencil"></i></a></li>
                            {% endfor %}
 
                             </ul>

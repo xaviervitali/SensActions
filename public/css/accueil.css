@@ -1,3 +1,5 @@
+/** @format */
+
 @import url("https://fonts.googleapis.com/css2?family=Smooch&display=swap");
 
 main {
@@ -5,44 +7,32 @@ main {
   color: var(--color-dark-blue);
 }
 
-/* *************************** */
-/* la section 1 (premier blob) */
-/* *************************** */
+/* ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: */
+/* :::::::::::::::::::::::::::::::::::::Section 1 :::::::::::::::::::::::::::::::::::::*/
+/* ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: */
 
-main section article {
-  position: relative;
-  margin: auto;
-  text-align: center;
-  width: 40vw;
-}
-main section article {
-  top: -40vw;
-}
-
-main section article p {
-  font-size: 1vw;
-  margin: 1vw 0;
-}
-
-main section article p:first-of-type {
-  font-size: 1.3vw;
-}
-
-main section:first-child article {
-  height: 0px;
-}
-
-/* *************************** */
-/* la section 2 (les 2 cartes) */
-/* *************************** */
-
-main section:nth-child(2) {
+.section1 {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
+  align-items: center;
+}
+.section1 > * {
+  min-width: 300px;
+  max-width: 62vw;
 }
 
-main section:nth-child(2) img {
+/* :::::::::::::::::::::::::: */
+/* Les deux encarts avec photo */
+/* :::::::::::::::::::::::::: */
+.section1 article:first-child {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* je fais disparaitre les photos pour preparer l'effet d'apparition et je stylise les photos */
+main section:first-child img {
   border-radius: 50%;
   filter: grayscale();
   width: 0px;
@@ -52,55 +42,129 @@ main section:nth-child(2) img {
   transition: 2s;
 }
 
-.anne,
-.marielle {
-  top: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 250px;
-  height: 270px;
-  border-radius: 20px;
-
-  transition: 1s;
-}
-
-.marielle {
-  color: var(--color-yellow);
-  background-color: var(--color-dark-blue);
-  border: solid 2px var(--color-yellow);
-}
-.anne {
-  color: var(--color-dark-blue);
-  background-color: var(--color-yellow);
-  border: solid 2px var(--color-dark-blue);
-}
-.marielle:hover {
-  color: var(--color-dark-blue);
-  background-color: var(--color-yellow);
-  border: solid 2px var(--color-dark-blue);
-}
-
-.anne:hover {
-  color: var(--color-yellow);
-  background-color: var(--color-dark-blue);
-  border: solid 2px var(--color-yellow);
-}
-
-.anne h3,
-.marielle h3 {
-  font-family: "Smooch", cursive;
-  font-size: 35px;
-}
-
+/* ceci est l'effet de grossissement et rotation des photos */
 .anne:hover img,
 .marielle:hover img {
   width: 100px;
   border: solid 2px var(--color-yellow);
   transform: rotateY(3.142rad);
 }
+/* je stylise la police des noms et prenoms */
+.anne h3,
+.marielle h3 {
+  font-family: "Smooch", cursive;
+  font-size: 35px;
+}
 
-/* *************************** */
-/* la section 3 (Dernier blob) */
-/* *************************** */
+/* je colorise le background et les polices des encarts et je stylise le background*/
+.marielle {
+  color: var(--color-yellow);
+  background-color: var(--color-dark-blue);
+  border: solid 2px var(--color-yellow);
+  border-radius: 10px 50% 30px 40%;
+}
+.anne {
+  color: var(--color-dark-blue);
+  background-color: var(--color-yellow);
+  border: solid 2px var(--color-dark-blue);
+  border-radius: 10px 50% 30px 40%;
+}
+
+/* je met un effet sur le background et la polices des encarts */
+.marielle:hover {
+  color: var(--color-dark-blue);
+  background-color: var(--color-yellow);
+  border: solid 2px var(--color-dark-blue);
+}
+.anne:hover {
+  color: var(--color-yellow);
+  background-color: var(--color-dark-blue);
+  border: solid 2px var(--color-yellow);
+}
+
+/* je dimensionne la carte et place le texte et les images au centre */
+.anne,
+.marielle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 20px;
+  width: 250px;
+  height: 270px;
+
+  text-align: center;
+  transition: 1s;
+}
+
+/* ::::::::::::::::::::::::::: */
+/* Premier blob et son artcicle*/
+/* ::::::::::::::::::::::::::: */
+
+.blob {
+  position: relative;
+  text-align: center;
+}
+
+.blob1 {
+  width: 75vw;
+}
+
+.blob article {
+  position: absolute;
+}
+
+.blob1 article {
+  top: 10vw;
+  width: 25vw;
+  left: 18vw;
+}
+.blob p {
+  font-size: 1.2vw;
+}
+.blob h2 {
+  font-size: 1.5vw;
+}
+
+/* ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: */
+/* :::::::::::::::::::::::::::::::::::::Section 2 :::::::::::::::::::::::::::::::::::::*/
+/* ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: */
+
+.blob2 article {
+  top: 25vw;
+  width: 40vw;
+  left: 30vw;
+}
+.blob article * {
+  margin-bottom: 10px;
+}
+@media screen and (max-width: 790px) {
+  .blob {
+    width: 90%;
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    margin: 10px auto;
+  }
+
+  .blob article {
+    position: static;
+    width: 100%;
+  }
+
+  .blob article p {
+    font-size: inherit;
+  }
+
+  .blob article h2 {
+    font-size: inherit;
+  }
+
+  .blob svg {
+    display: none;
+  }
+  .blob2 article {
+    color: var(--color-blue);
+  }
+}

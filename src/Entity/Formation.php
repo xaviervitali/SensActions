@@ -97,6 +97,15 @@ class Formation
     #[ORM\Column(type: 'datetime_immutable')]
     private $updatedAt;
 
+    #[ORM\Column(type: 'boolean')]
+    private $enabled;
+
+    #[ORM\Column(type: 'boolean')]
+    private $certification;
+
+    #[ORM\Column(type: 'boolean')]
+    private $cpf;
+
     public function __construct()
     {
         $this->learningCategories = new ArrayCollection();
@@ -361,6 +370,42 @@ class Formation
     public function setUpdatedAt(\DateTimeImmutable $updatedAt): self
     {
         $this->updatedAt = $updatedAt;
+
+        return $this;
+    }
+
+    public function isEnabled(): ?bool
+    {
+        return $this->enabled;
+    }
+
+    public function setEnabled(bool $enabled): self
+    {
+        $this->enabled = $enabled;
+
+        return $this;
+    }
+
+    public function isCertification(): ?bool
+    {
+        return $this->certification;
+    }
+
+    public function setCertification(bool $certification): self
+    {
+        $this->certification = $certification;
+
+        return $this;
+    }
+
+    public function isCpf(): ?bool
+    {
+        return $this->cpf;
+    }
+
+    public function setCpf(bool $cpf): self
+    {
+        $this->cpf = $cpf;
 
         return $this;
     }

@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Formation;
+use App\Entity\LearningCategory;
 use App\Form\ContactType;
 use App\Repository\FormationRepository;
 use App\Repository\LearningCategoryRepository;
@@ -24,8 +25,19 @@ class PublicController extends AbstractController
     #[Route('/formations', name: 'formations')]
     public function formations(LearningCategoryRepository $learningCategoryRepository, FormationRepository $formationRepository): Response
     {
-
-        return $this->render('public/formations.html.twig', ["learningCategories" => $learningCategoryRepository->findAll(), "formations" => $formationRepository->findAll()]);
+        $learningCategories = $learningCategoryRepository->findAll();
+        $filteredCategories = [];
+        foreach ($learningCategories as $category) {
+            /**
+             * @var LearningCategory $category
+             */
+            if (count(array_filter($category->getFormations()->toArray(), function ($formation) {
+                return $formation->isEnabled();
+            })) > 0) {
+                $filteredCategories[] = $category;
+            };
+        }
+        return $this->render('public/formations.html.twig', ["learningCategories" => $filteredCategories, "formations" => $formationRepository->findBy(["enabled" => true])]);
     }
 
     // #[Route('/formation', name: 'formation')]
@@ -87,6 +99,6 @@ class PublicController extends AbstractController
         if ($query) {
             $results = $formationRepository->findInGoals($query);
         }
-        return $this->render('public/results.html.twig', ["results" => $results, "formations" => $formationRepository->findAll()]);
+        return $this->render('public/results.html.twig', ["results" => $results, "formations" => $formationRepository->findBy(["enabled" => true])]);
     }
 }

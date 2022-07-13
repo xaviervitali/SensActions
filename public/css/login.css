@@ -8,13 +8,22 @@ body {
   background: var(--color-dark-blue);
 }
 
+header * {
+  color: var(--color-blue) !important;
+}
+
+main {
+  /* height: 60vh; */
+  margin-top: 2rem 0;
+}
 .login-box {
-  position: absolute;
-  top: 50%;
-  left: 50%;
+  /* position: relative; */
+  /* top: 60%;
+  left: 50%; */
+  margin: auto;
   width: 400px;
   padding: 40px;
-  transform: translate(-50%, -50%);
+  /* transform: translate(-50%, -50%); */
   background: rgba(0, 0, 0, 0.5);
   box-sizing: border-box;
   box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
