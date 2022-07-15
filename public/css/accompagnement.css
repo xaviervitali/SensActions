@@ -1,18 +1,12 @@
 .blob {
   background-blend-mode: difference;
   opacity: 0.95;
+  position: relative;
+  height: 25vw;
+  fill: var(--color-dark-blue);
 }
 
 /* Blob eb général */
-
-.blob {
-  position: relative;
-  height: 25vw;
-}
-
-.blob {
-  fill: var(--color-dark-blue);
-}
 
 .blob > article {
   position: absolute;
@@ -26,6 +20,7 @@
 .blob h2 {
   font-size: 1.2vw;
 }
+
 /* Blob2 */
 .blob2 {
   fill: var(--color-yellow);
@@ -40,8 +35,6 @@
 
 .blob2 > article > * {
   position: relative;
-
-  /* background-color: var(--color-yellow); */
 }
 
 /* Placement des textes */
@@ -50,7 +43,6 @@
 }
 
 .textDemarche2 {
-  position: relative;
   animation: ease-in-out top-to-bottom 10s infinite alternate-reverse;
 }
 
