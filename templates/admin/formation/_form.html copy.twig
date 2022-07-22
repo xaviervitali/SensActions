@@ -3,36 +3,36 @@
   <legend>
     Informations générales
   </legend>
-  {{ form_row(form.name) }}
-  {{ form_row(form.goal) }}
-  {{ form_row(form.competences) }}
-  {{ form_row(form.validation) }}
-  {{ form_row(form.program) }}
-  {{ form_row(form.organization) }}
+  {{ form_widget(form.name) }}
+  {{ form_widget(form.goal) }}
+  {{ form_widget(form.competences) }}
+  {{ form_widget(form.validation) }}
+  {{ form_widget(form.program) }}
+  {{ form_widget(form.organization) }}
   <article class="form-check d-flex justify-content-evenly">
     {{ form_row(form.certification) }}
     {{ form_row(form.cpf) }}
   </article>
-  {{ form_row(form.uploadedFile) }}
+  {{ form_widget(form.uploadedFile) }}
 </fieldset>
 <fieldset>
   <legend>
     Les plus de la formation
   </legend>
-  {{ form_row(form.moreInfo) }}
+  {{ form_widget(form.moreInfo) }}
 </fieldset>
 
 <fieldset>
   <legend>
     Résumé de la formation
   </legend>
-  <article>
-    {{ form_row(form.public) }}
-    {{ form_row(form.handicap) }}
-    {{ form_row(form.prerequisite) }}
-    {{ form_row(form.duration) }}
-    {{ form_row(form.intervenants) }}
-    {{ form_row(form.method) }}
+  <article class="d-flex justify-content-between flex-wrap">
+    {{ form_widget(form.public) }}
+    {{ form_widget(form.handicap) }}
+    {{ form_widget(form.prerequisite) }}
+    {{ form_widget(form.duration) }}
+    {{ form_widget(form.intervenants) }}
+    {{ form_widget(form.method) }}
   </article>
 </fieldset>
 <fieldset>
@@ -40,9 +40,9 @@
     Statistiques de la formation
   </legend>
   <article class="d-flex justify-content-between">
-    {{ form_row(form.participants) }}
-    {{ form_row(form.satisfaction) }}
-    {{ form_row(form.successRate) }}
+    {{ form_widget(form.participants) }}
+    {{ form_widget(form.satisfaction) }}
+    {{ form_widget(form.successRate) }}
   </article>
 </fieldset>
 
@@ -50,7 +50,7 @@
   <legend>
     Thèmes de la formation
   </legend>
-  {{ form_row(form.learningCategories) }}
+  {{ form_widget(form.learningCategories) }}
 </fieldset>
 <fieldset>
   <legend>

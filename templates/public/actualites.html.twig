@@ -1,84 +1,49 @@
-{% extends "base.html.twig" %}
+{% extends 'base.html.twig' %}
 {% block stylesheets %}
-	<link rel="stylesheet" href="{{ asset('css/actualites.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/actualites.css') }}" />
 {% endblock %}
+
 {% block main %}
-<div class="wrapper">
-  {# <div class="background">
-    <img src="https://res.cloudinary.com/muhammederdem/image/upload/q_60/v1537132206/news-slider/background.webp" alt="">
-  </div> #}
-  <div class="item-bg"></div>
-
-  <div class="news-slider">
-    <div class="news-slider__wrp swiper-wrapper">
+  <ul class="nav nav-tabs mb-3" id="ex1" role="tablist">
     {% for new in news %}
-      
-      <div class="news-slider__item swiper-slide">
-        <a href="#" class="news__item">
-          <div class="news-date">
-            <span class="news-date__title">Le {{new.updatedAt | format_datetime('full', 'none', locale='fr')}}</span>
-            <span class="news-date__txt">{{new.updatedAt | format_datetime('none', 'short', locale='fr')}}</span>
-          </div>
-          <div class="news__title">
-            {{ new.title}}
-          </div>
-
-          <p class="news__txt">
-          {{new.description}}
-          </p>
-
-          {% if new.image %}
-          <div class="news__img">
-            
-            <img src="{{asset("newsPictures/" ~ new.image)}}" alt="{{new.title}}">
-          </div>
-          {% endif %}
+      <li class="nav-item" role="presentation">
+        <a class="nav-link {{ loop.index == 1 ? 'active' : '' }}"
+          id="ex1-tab-{{ loop.index }}"
+          data-mdb-toggle="tab"
+          href="#ex1-tabs-{{ loop.index }}"
+          role="tab"
+          aria-controls="ex1-tabs-{{ loop.index }}"
+          aria-selected="true">
+          {{ new.title }}
         </a>
+      </li>
+    {% endfor %}
+  </ul>
+  <!-- Tabs navs -->
+
+  <!-- Tabs content -->
+  <div class="tab-content" id="ex1-content">
+    {% for new in news %}
+      <div class="tab-pane fade show {{ loop.index == 1 ? 'active' : '' }}"
+        id="ex1-tabs-{{ loop.index }}"
+        role="tabpanel"
+        aria-labelledby="ex1-tab-{{ loop.index }}">
+        {% if new.image %}
+          <img src="{{ asset('newsPictures/' ~ new.image) }}"
+            alt="{{ new.title }}" />
+        {% endif %}
+        {{ new.description }}
+        <p class="mt-3 text-end fw-bold">
+          Ajouté le {{ new.updatedAt|format_datetime('full', 'none', locale = 'fr') }}
+        </p>
       </div>
     {% endfor %}
-
-
-    </div>
-
-    <div class="news-slider__ctr">
-
-      <div class="news-slider__arrows">
-        <button class="news-slider__arrow news-slider-prev">
-          <span class="icon-font">
-            <svg class="icon icon-arrow-left"><use xlink:href="#icon-arrow-left"></use></svg>
-          </span>
-        </button>
-        <button class="news-slider__arrow news-slider-next">
-          <span class="icon-font">
-            <svg class="icon icon-arrow-right"><use xlink:href="#icon-arrow-right"></use></svg>
-          </span>
-        </button>
-      </div>
-
-      <div class="news-slider__pagination"></div>
-
-    </div>
-
   </div>
-
-</div>
-
-<svg hidden="hidden">
-  <defs>
-    <symbol id="icon-arrow-left" viewBox="0 0 32 32">
-      <title>arrow-left</title>
-      <path d="M0.704 17.696l9.856 9.856c0.896 0.896 2.432 0.896 3.328 0s0.896-2.432 0-3.328l-5.792-5.856h21.568c1.312 0 2.368-1.056 2.368-2.368s-1.056-2.368-2.368-2.368h-21.568l5.824-5.824c0.896-0.896 0.896-2.432 0-3.328-0.48-0.48-1.088-0.704-1.696-0.704s-1.216 0.224-1.696 0.704l-9.824 9.824c-0.448 0.448-0.704 1.056-0.704 1.696s0.224 1.248 0.704 1.696z"></path>
-    </symbol>
-    <symbol id="icon-arrow-right" viewBox="0 0 32 32">
-      <title>arrow-right</title>
-      <path d="M31.296 14.336l-9.888-9.888c-0.896-0.896-2.432-0.896-3.328 0s-0.896 2.432 0 3.328l5.824 5.856h-21.536c-1.312 0-2.368 1.056-2.368 2.368s1.056 2.368 2.368 2.368h21.568l-5.856 5.824c-0.896 0.896-0.896 2.432 0 3.328 0.48 0.48 1.088 0.704 1.696 0.704s1.216-0.224 1.696-0.704l9.824-9.824c0.448-0.448 0.704-1.056 0.704-1.696s-0.224-1.248-0.704-1.664z"></path>
-    </symbol>
-  </defs>
-</svg>
 {% endblock %}
 
 {% block javascripts %}
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.3.5/js/swiper.min.js"></script>
-<script src="{{asset("js/actualites.js")}}"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.3.0/mdb.min.js"
+    integrity="sha512-ij4XhOe1taShOQHGQAk3ymRErzvHZ50yt91mbGNs/pA5RQoWnzYQRdMrcNb3oRxhdsCH5mN1WHCQJy1/KXjjTA=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"></script>
 {% endblock %}

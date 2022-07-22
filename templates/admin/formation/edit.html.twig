@@ -1,12 +1,20 @@
 {% extends 'baseAdmin.html.twig' %}
 
 {% block stylesheetsAdmin %}
-    <link rel="stylesheet" href="{{asset("css/adminFormFormation.css")}}">
+  <link rel="stylesheet" href="{{ asset('css/adminFormFormation.css') }}" />
 {% endblock %}
 
 {% block main %}
-
-    {{ include('admin/formation/_form.html.twig', {'button_label': 'Mettre à jour la formation'}) }}
-    {{ include('admin/formation/_delete_form.html.twig') }}
-    <a class="d-block" href="{{ path('app_formation_index') }}">Revenir à la liste des formations</a>
+  {{
+    include(
+      'admin/formation/_form.html.twig',
+      {
+        button_label: 'Mettre à jour la formation'
+      }
+    )
+  }}
+  {{ include('admin/formation/_delete_form.html.twig') }}
+  <a class="d-block" href="{{ path('app_formation_index') }}">
+    Revenir à la liste des formations
+  </a>
 {% endblock %}

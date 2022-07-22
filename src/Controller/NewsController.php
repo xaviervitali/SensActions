@@ -30,6 +30,7 @@ class NewsController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
             $news->setUpdatedAt(new DateTimeImmutable());
             $newsRepository->add($news, true);
 
@@ -57,6 +58,8 @@ class NewsController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $news->setUpdatedAt(new DateTimeImmutable());
+
             $newsRepository->add($news, true);
 
             return $this->redirectToRoute('app_news_index', [], Response::HTTP_SEE_OTHER);

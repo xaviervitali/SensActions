@@ -3,8 +3,10 @@
 	<link rel="stylesheet" href="{{ asset('css/formations.css') }}">
 {% endblock %}
 {% block main %}
-<p class="text-center px-2" style="letter-spacing: 3px; line-height: 30px;">Le cabinet de conseil Sens Actions à Marseille propose un important catalogue de formations destiné aux préventeurs en entreprise, aux médecins du travail, aux Intervenants en Prévention des Risques Professionnels (IPRP), aux membres du CHSCT (CSE), aux responsables des ressources humaines, aux managers, aux formateurs et plus généralement à tous les acteurs impliqués dans le projet Santé au travail de son organisation.</p>
-{% include "public/recherche.html.twig" %}
+	<article class="search">
+		<p class="text-center px-2" style="letter-spacing: 3px; line-height: 30px;">Le cabinet de conseil Sens Actions à Marseille propose un important catalogue de formations destiné aux préventeurs en entreprise, aux médecins du travail, aux Intervenants en Prévention des Risques Professionnels (IPRP), aux membres du CHSCT (CSE), aux responsables des ressources humaines, aux managers, aux formateurs et plus généralement à tous les acteurs impliqués dans le projet Santé au travail de son organisation.</p>
+		{% include "public/recherche.html.twig" %}
+	</article>
 	<section class="d-none d-lg-flex">
 		{% set learningCategories = learningCategories | filter(lc => (lc | length) > 0) %}
 
@@ -18,31 +20,31 @@
 						<li><a href='{{path("app_formation_show", {slug: formation.slug})}}'>{{formation.name}}</a></li>
 					{% endfor %}
 					</article>
-					<div class="tabTitle" style="top:{{ loop.index * (learningCategories | length) }}vh">
+					<article class="tabTitle" style="top:{{ loop.index * (learningCategories | length) }}vh">
 							<h2> {{ learningCategory.name}} </h2>
-						</div> 
+						</article> 
 				</article>
 		{% endfor %}
 </section>
-	<div class="accordion  d-lg-none m-0" id="accordionExample">
+	<article class="accordion  d-lg-none m-0" id="accordionExample">
 		{% for learningCategory in learningCategories  %}
 
-			<div class="accordion-item">
+			<article class="accordion-item">
 				<h2 class="accordion-header" id="heading{{loop.index}}">
 					<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{loop.index}}" aria-expanded="true" aria-controls="collapse{{loop.index}}">
 						 {{ learningCategory.name}} 
 					</button>
 				</h2>
-				<div id="collapse{{loop.index}}" class="accordion-collapse collapse " aria-labelledby="heading{{loop.index}}" data-bs-parent="#accordionExample">
-					<div class="accordion-body">
+				<article id="collapse{{loop.index}}" class="accordion-collapse collapse " aria-labelledby="heading{{loop.index}}" data-bs-parent="#accordionExample">
+					<article class="accordion-body">
 						{% for formation in learningCategory.formations %}
 							<p><a href='{{path("app_formation_show", {slug: formation.slug})}}'>{{formation.name}}</a></p>
 						{% endfor %}
-					</div>
-				</div>
-			</div>
+					</article>
+				</article>
+			</article>
 		{% endfor %}
-	</div>
+	</article>
 {% endblock %}
 {% block javascripts %}
 <script>

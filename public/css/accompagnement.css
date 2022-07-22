@@ -4,6 +4,7 @@
   position: relative;
   height: 25vw;
   fill: var(--color-dark-blue);
+  margin-bottom: 10vh;
 }
 
 /* Blob eb général */
@@ -24,7 +25,7 @@
 /* Blob2 */
 .blob2 {
   fill: var(--color-yellow);
-  top: -3vw;
+  /* top: -3vw; */
 }
 
 .blob2 > article {
@@ -48,7 +49,7 @@
 
 /* Blob3 */
 .blob3 {
-  top: -6vw;
+  /* top: -6vw; */
 }
 
 /* Media screen */
@@ -69,11 +70,12 @@
 
   .blob article p,
   li {
-    font-size: initial;
+    font-size: 1rem;
   }
 
   .blob article h2 {
-    font-size: initial;
+    font-size: 1.2rem;
+    font-weight: 600;
   }
 
   .blob svg {

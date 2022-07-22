@@ -95,6 +95,8 @@ class Formation
     private $slug;
 
     #[ORM\Column(type: 'datetime_immutable')]
+    #[Groups("formation_view")]
+
     private $updatedAt;
 
     #[ORM\Column(type: 'boolean')]
@@ -106,6 +108,9 @@ class Formation
     #[ORM\Column(type: 'boolean')]
     private $cpf;
 
+    #[ORM\Column(type: 'text')]
+    private $organization;
+
     public function __construct()
     {
         $this->learningCategories = new ArrayCollection();
@@ -114,12 +119,11 @@ class Formation
     public function setUploadedFile(?File $uploadedFile = null): void
     {
         $this->uploadedFile = $uploadedFile;
-
-        if (null !== $uploadedFile) {
-            // It is required that at least one field changes if you are using doctrine
-            // otherwise the event listeners won't be called and the file is lost
-            $this->setUpdatedAt(new \DateTimeImmutable());
-        }
+        // if (null !== $uploadedFile) {
+        //     // It is required that at least one field changes if you are using doctrine
+        //     // otherwise the event listeners won't be called and the file is lost
+        //     $this->setUpdatedAt(new \DateTimeImmutable());
+        // }
     }
 
     public function getUploadedFile(): ?File
@@ -406,6 +410,18 @@ class Formation
     public function setCpf(bool $cpf): self
     {
         $this->cpf = $cpf;
+
+        return $this;
+    }
+
+    public function getOrganization(): ?string
+    {
+        return $this->organization;
+    }
+
+    public function setOrganization(string $organization): self
+    {
+        $this->organization = $organization;
 
         return $this;
     }

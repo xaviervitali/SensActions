@@ -1,47 +1,49 @@
-{% extends "base.html.twig" %}
+{% extends 'base.html.twig' %}
 {% block stylesheets %}
-	<link rel="stylesheet" href="{{ asset('css/contact.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/contact.css') }}" />
 {% endblock %}
 {% block main %}
-    <section  class="text-center">
-        <article>
-          <h1><strong>Un besoin ? Parlons-en !</strong></h1>
-          <p>
-            Qu’il s’agisse d’actions visant à développer la
-           formation à la santé et la
-           sécurité au travail au sein de votre structure,
-          </p>
-<p>
-           Sens Actions à Marseille joue un rôle primordial
-            dans la transmission des performances et compétences en prévention
-            des risques professionnels.</p>
-          <p>
-            L’équipe de Sens Actions reste à votre écoute pour
-            l’étude de vos besoins.
-          </p>
-        </article>
-        <article>
-          {# <form action="" method="">
-            <div class="row mb-3">
-              <div class="col">
+  <section class="text-center">
+    <article>
+      <h1>
+        <strong>Un besoin ? Parlons-en !</strong>
+      </h1>
+      <p>
+        Qu’il s’agisse d’actions visant à développer la formation à la santé et
+        la sécurité au travail au sein de votre structure,
+      </p>
+      <p>
+        Sens Actions à Marseille joue un rôle primordial dans la transmission
+        des performances et compétences en prévention des risques
+        professionnels.
+      </p>
+      <p>
+        L’équipe de Sens Actions reste à votre écoute pour l’étude de vos
+        besoins.
+      </p>
+    </article>
+    <article>
+      {# <form action="" method="">
+            <article class="row mb-3">
+              <article class="col">
                 <input
                   type="text"
                   class="form-control"
                   placeholder="Nom"
                   required="required"
                 />
-              </div>
-              <div class="col">
+              </article>
+              <article class="col">
                 <input
                   type="text"
                   class="form-control"
                   placeholder="Prénom"
                   required="required"
                 />
-              </div>
-            </div>
-            <div class="row mb-3">
-              <div class="col">
+              </article>
+            </article>
+            <article class="row mb-3">
+              <article class="col">
                 <input
                   type="tel"
                   id="contact_phone"
@@ -50,23 +52,23 @@
                   placeholder="Téléphone"
                   class="form-control"
                 />
-              </div>
-              <div class="col">
+              </article>
+              <article class="col">
                 <input
                   type="mail"
                   class="form-control"
                   placeholder="E-mail"
                   required="required"
                 />
-              </div>
-            </div>
-            <div class="row mb-3">
-              <div class="col">
+              </article>
+            </article>
+            <article class="row mb-3">
+              <article class="col">
                 <label class="choix-radio" style="padding: 15px"
                   >Vous êtes :</label
                 >
-              </div>
-              <div
+              </article>
+              <article
                 class="col d-block d-md-flex justify-content-around custom-control custom-radio"
               >
                 <label class="custom-control-label" for="radio1">
@@ -78,8 +80,8 @@
                  Une entreprise
                   <input type="radio" class="custom-control-input" id="radio2"
                 /></label>
-              </div>
-              <div class="form-group">
+              </article>
+              <article class="form-group">
                 <label for="message"></label>
                 <textarea
                   class="form-control"
@@ -87,8 +89,8 @@
                   placeholder="Message"
                   rows="4"
                 ></textarea>
-              </div>
-              <div class="rgpd">
+              </article>
+              <article class="rgpd">
                 <p>
                   <input
                     type="checkbox"
@@ -103,96 +105,94 @@
                     seront traitées dans le cadre du respect du RGPD de Sens Actions.</span
                   >
                 </p>
-              </div>
-              <div class="d-grid justify-content-md-end">
+              </article>
+              <article class="d-grid justify-content-md-end">
                 <button class="btn bouton" type="envoyer">Envoyer</button>
-              </div>
-            </div>
+              </article>
+            </article>
           </form> #}
-          {% set flashes = app.flashes  %}
+      {% set flashes = app.flashes %}
       {% if flashes %}
-              {% for type, message in flashes %}
-                <article class="alert alert-{{type}}" role="alert"><p>Merci, votre message : </p> <p>{{message[0]}}</p><p>A bien été envoyé.</p></article>
-              {% endfor %}
-              {% else %}
-          {{ form_start(form)}}
-          <div class="row mb-3">
-            <div class="col">
-              {{ form_widget(form.firstname)}}
-            </div>
-            <div class="col">
-              {{ form_widget(form.lastname)}}
-            </div>
-          </div>
-          <div class="row mb-3">
-            <div class="col">
-          {{ form_widget(form.email)}}
-               </div>
-            <div class="col">
-          {{ form_widget(form.phone)}}
-            </div>
-          </div>
-          <div class="row mb-3">
-            <div class="col">
-              {{ form_label(form.contactType)}}
-            </div>
-            <div
-                class="col d-block d-md-flex justify-content-around custom-control custom-radio"
-              >
-              {{ form_widget(form.contactType)}}
+        {% for type, message in flashes %}
+          <article class="alert alert-{{ type }}" role="alert">
+            <p>
+              Merci, votre message :
+            </p> <p>
+              {{ message[0] }}
+            </p>
+            <p>
+              A bien été envoyé.
+            </p>
+          </article>
+        {% endfor %}
+      {% else %}
+        {{ form_start(form) }}
+        <article class="row mb-3">
+          <article class="col">
+            {{ form_widget(form.firstname) }}
+          </article>
+          <article class="col">
+            {{ form_widget(form.lastname) }}
+          </article>
+        </article>
+        <article class="row mb-3">
+          <article class="col">
+            {{ form_widget(form.email) }}
+          </article>
+          <article class="col">
+            {{ form_widget(form.phone) }}
+          </article>
+        </article>
+        <article class="row mb-3">
+          <article class="col">
+            {{ form_label(form.contactType) }}
+          </article>
+          <article class="col d-block d-md-flex justify-content-around custom-control custom-radio">
+            {{ form_widget(form.contactType) }}
+          </article>
+        </article>
+        {{ form_widget(form.message) }}
+        {{ form_widget(form.aggrements) }}
+        {{ form_label(form.aggrements) }}
 
-            </div>
-          </div>
-          {{ form_widget(form.message)}}
-          {{ form_widget(form.aggrements)}}
-          {{ form_label(form.aggrements)}}
-    
-              
-              <div class="d-grid justify-content-md-end">
-                <button class="btn bouton" type="envoyer">Envoyer</button>
-              </div>
-
-          {{ form_end(form)}}
-          {% endif %}
-     
+        <article class="d-grid justify-content-md-end">
+          <button class="btn bouton" type="envoyer">Envoyer</button>
         </article>
 
-        <div class="d-flex justify-content-center">
-          <article
-            class="container row d-flex align-items-center border-rounded"
-          >
+        {{ form_end(form) }}
+      {% endif %}
+    </article>
 
-
-            <article class="col">
-              <h2>52 Avenue des Pébrons</h2>
-              <h2>13008 Marseille</h2>
-              <h5>06.77.20.23.17</h5>
-              <h5>06.19.23.36.31</h5>
-
-              <iframe
-              class=" order-last"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2749.3118690584165!2d5.353393515363498!3d43.21377107913879!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12c9c7a7de3bf29b%3A0xe3d285e92125541f!2sSens%20Actions!5e1!3m2!1sfr!2sfr!4v1655129846622!5m2!1sfr!2sfr"
-              width="500"
-              height="250"
-              style="border-radius: 5%"
-              allowfullscreen=""
-              loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"
-              id="carte"
-            ></iframe>
-            </article>
-            <img src="http://via.placeholder.com/640x360" alt="" class="d-block col">
-          </article>
-        </div>
-      </section>
-
-
-
-
+    <article class="d-flex justify-content-center">
+      <article class="container row d-flex align-items-center border-rounded">
+        <article class="col">
+          <h2>
+            52 Avenue des Pébrons
+          </h2>
+          <h2>
+            13008 Marseille
+          </h2>
+          <h5>
+            06.77.20.23.17
+          </h5>
+          <h5>
+            06.19.23.36.31
+          </h5>
+          <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1453.9037203176592!2d5.3545611!3d43.213528!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12c9c7d276c7f607%3A0x1f46ab4d20114e84!2s52%20Av.%20des%20Pebrons%2C%2013008%20Marseille!5e0!3m2!1sfr!2sfr!4v1658385999875!5m2!1sfr!2sfr"
+            width="600"
+            height="300"
+            style="border:0;"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </article>
+        <img src="http://via.placeholder.com/640x360"
+          alt=""
+          class="d-block col" />
+      </article>
+    </article>
+  </section>
 {% endblock %}
 {% block javascripts %}
-  <script>
-
-
-</script>
+  <script></script>
 {% endblock %}

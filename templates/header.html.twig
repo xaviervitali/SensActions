@@ -1,43 +1,49 @@
-<nav
-	class="navbar navbar-expand-lg ">
-	<!-- <div class="carre"></div> -->
+<nav class="navbar navbar-expand-lg">
+  <!-- <article class="carre"></article> -->
 
-	<div
-		class="container-fluid">
+  <article class="container-fluid">
+    <!-- LOGO -->
+    <a class="navbar-brand" href="{{ path('accueil') }}">
+      <img class="logo" src="{{ asset('img/logo5.png') }}" alt="brand logo" />
+    </a>
 
-		<!-- LOGO -->
-		<a class="navbar-brand" href="{{path("accueil")}}">
-			<img class="logo" src="{{ asset('img/logo5.png') }}">
-		</a>
+    <button class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
-		</button>
+    <article class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-3 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" href="{{ path('accueil') }}">Accueil</a>
+        </li>
 
-		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <li class="nav-item">
+          <a class="nav-link" href="{{ path('formations') }}">Formations</a>
+        </li>
 
-			<ul class="navbar-nav me-auto mb-3 mb-lg-0">
-				<li class="nav-item">
-					<a class="nav-link" href="{{ path('accueil') }}">Accueil</a>
-				</li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{ path('accompagnement') }}">
+            Accompagnement
+          </a>
+        </li>
 
-				<li class="nav-item">
-					<a class="nav-link" href="{{ path('formations') }}">Formations</a>
-				</li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{ path('actualites') }}">Actualités</a>
+        </li>
 
-				<li class="nav-item">
-					<a class="nav-link" href="{{ path('accompagnement') }}">Accompagnement</a>
-				</li>
-
-				<li class="nav-item">
-					<a class="nav-link" href="{{ path('actualites') }}">Actualités</a>
-				</li>
-
-				<li class="nav-item">
-					<a class="nav-link" href="{{ path('contact') }}">Contact</a>
-				</li>
-			</ul>
-		</div>
-	</div>
+        <li class="nav-item">
+          <a class="nav-link" href="{{ path('contact') }}">Contact</a>
+        </li>
+      </ul>
+    </article>
+  </article>
 </nav>
-<p class="catchphrase ml12">DONNER DU SENS À VOS ACTIONS DE FORMATION</p>
+<p class="catchphrase ml12">
+  DONNER DU SENS À VOS ACTIONS DE FORMATION
+</p>

@@ -41,3 +41,10 @@ img {
   max-width: 640px;
   width: 30% !important;
 }
+iframe {
+  border-radius: 5%;
+  display: block;
+  width: 100%;
+  min-width: 250px;
+  max-width: 600px;
+}

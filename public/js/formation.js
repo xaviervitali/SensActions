@@ -22,7 +22,7 @@
 /**
  * Partie stats
  */
-// const ratingStars = document.querySelectorAll(".stats .fa-regular");
+const ratingStars = document.querySelectorAll(".stats .fa-regular");
 
 // const trainningRate = 90;
 // document.querySelector(".successRate").innerText = 85;
@@ -33,17 +33,19 @@
 //   Math.random() * 10000
 // );
 
-const starsFilled = Math.floor((satisfaction / 100) * ratingStars.length);
+if (satisfaction) {
+  const starsFilled = Math.floor((satisfaction / 100) * ratingStars.length);
 
-const halfStars = satisfaction % starsFilled;
-let i = 0;
-ratingStars.forEach((star) => {
-  if (i < starsFilled) {
-    star.classList = "fa-solid fa-star";
-    i++;
+  const halfStars = satisfaction % starsFilled;
+  let i = 0;
+  ratingStars.forEach((star) => {
+    if (i < starsFilled) {
+      star.classList = "fa-solid fa-star";
+      i++;
+    }
+  });
+
+  if (halfStars != 0) {
+    ratingStars[i].classList = "fa-regular fa-star-half-stroke";
   }
-});
-
-if (halfStars != 0) {
-  ratingStars[i].classList = "fa-regular fa-star-half-stroke";
 }

@@ -1,13 +1,28 @@
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap");
 body {
-  background: #ffffff;
+  /* background: #ffffff; */
 }
-
+.boite_formations_responsive {
+  display: none;
+  /* color: var(--color-yellow); */
+  text-align: center;
+  margin: 10px;
+  padding: 10px;
+  background-color: var(--color-dark-blue-admin);
+  border-radius: 1rem;
+}
+.boite_formations_responsive strong {
+  font-size: 1.2rem;
+}
+main {
+  margin-bottom: 100px;
+}
 main li {
   list-style-type: none;
 }
 
 main .elipse {
-  background-color: var(--color-blue);
+  background-color: var(--color-yellow);
   height: 120px;
   margin: 100px auto 0px;
   border-radius: 0 0 50% 50%/ 0 0 100% 100%;
@@ -15,6 +30,9 @@ main .elipse {
   top: -100px;
   -webkit-box-shadow: 0px 5px 6px 2px #000000;
   box-shadow: 0px 5px 6px 2px #000000;
+}
+main h1 {
+  color: var(--color-dark-blue);
 }
 /*
 ###########################
@@ -31,7 +49,7 @@ Block stats
 ###########################
 */
 main .stats p:nth-child(2) {
-  color: var(--color-yellow);
+  /* color: var(--color-yellow); */
   font-size: 2rem;
   font-weight: bold;
   letter-spacing: 2px;
@@ -50,39 +68,27 @@ Block prerequis
 ###########################
 ###########################
 */
-main .boite_liste_prerequis,
 main .prerequis input {
-  -webkit-box-shadow: 0px 5px 6px 2px #000000;
-  box-shadow: 0px 5px 6px 2px #000000;
-}
-
-main .prerequis input {
+  box-shadow: 0px 0px 10px var(--color-dark-blue);
+  background-color: var(--color-grey);
+  color: #ffffff;
   width: 100%;
   padding: 5px;
-  /* color: white; */
   height: 3rem;
   border-radius: 2.5rem;
   border: none;
-  /* font-size: 1.2em; */
-  /* font-weight: bold; */
   transition: 2s;
 }
 main .boite_liste_prerequis {
-  background-color: var(--color-yellow);
+  /* background-color: var(--color-dark-blue); */
   /* color: var(--color-blue); */
-  border-radius: 1rem;
+  /* border-radius: 1rem; */
+  letter-spacing: 2px;
 }
 
 main .boite_liste_prerequis i {
   font-size: 2rem;
-}
-
-main .boite_liste_prerequis i::after {
-  content: "\00a0";
-}
-
-main .download {
-  background-color: var(--color-red);
+  margin: 1rem 1rem 0.5rem 0;
 }
 
 main .download:hover {
@@ -90,14 +96,16 @@ main .download:hover {
 }
 
 main .contact {
-  -webkit-box-shadow: 0px 5px 6px 2px #000000;
-  box-shadow: 0px 5px 6px 2px #000000;
+  box-shadow: 0px 0px 10px var(--color-dark-blue);
   background-color: var(--color-yellow);
   transition: 2s;
   border-radius: 2.5rem;
   height: 3rem;
 }
 
+main .contact a {
+  color: #ffffff !important;
+}
 main .contact:hover {
   transform: scale(1.2);
   background-color: var(--color-yellow);
@@ -155,7 +163,7 @@ main button {
 }
 
 main .nav-tabs button.active {
-  background-color: var(--color-blue) !important;
+  background-color: var(--color-yellow) !important;
   height: 100%;
   filter: drop-shadow(0px 5px 1px var(--color-dark-blue-admin));
 }
@@ -170,20 +178,20 @@ main .nav-tabs {
   flex-wrap: nowrap;
 }
 main button.active::after {
-  content: attr(div);
+  content: attr(article);
   position: absolute;
   left: 0px;
   top: 40px;
   width: 100%;
-  background-color: var(--color-blue);
+  background-color: var(--color-yellow);
   padding: 12px;
   -webkit-clip-path: polygon(100% 0, 0 0, 50% 100%);
   clip-path: polygon(100% 0, 0 0, 50% 100%);
 }
 
 main .tab-pane {
+  box-shadow: 0 0 20px var(--color-dark-blue);
   max-height: 50vh;
-  background-color: var(--color-blue);
   color: white;
   overflow: auto;
 }
@@ -212,6 +220,15 @@ main .tab-pane {
   .boite_formations {
     width: 100vw;
   }
+  .boite_formations {
+    display: none;
+  }
+  main button.active::after {
+    content: "";
+  }
+  .boite_formations_responsive {
+    display: block;
+  }
 }
 
 ::-webkit-scrollbar {
@@ -229,26 +246,25 @@ main .tab-pane {
 
 main .sticker {
   position: relative;
-  /* width: 160px; */
-  /* height: 70px; */
-  /* float: left; */
-  /* font-size: 1.5em;
-  font-weight: bold; */
-  /* margin: 30px 10px 10px -90px; */
-  background-color: #fcf59b;
+  background-color: var(--color-dark-blue);
+  color: var(--color-yellow);
   border-radius: 0px 10px 250px / 0 200px 55px 250px;
   -webkit-box-shadow: -3px 5px 12px 0 rgba(0, 0, 0, 0.3);
   -moz-box-shadow: -3px 5px 12px 0 rgba(0, 0, 0, 0.3);
   box-shadow: -3px 5px 12px 0 rgba(0, 0, 0, 0.3);
 }
 
+main .sticker p {
+  font-family: "Dancing Script", cursive;
+  font-size: 1.5rem;
+}
 /* Text on the sticker*/
 main .text {
   text-align: center;
   display: block;
   padding: 20px;
   /* font-size: 80%; */
-  font-family: "Shadows Into Light", cursive;
+  /* font-family: "Shadows Into Light", cursive; */
 }
 
 /* Shadow under sticker */
@@ -287,4 +303,9 @@ main .sticker::after {
 main .boite_liste_prerequis li {
   font-weight: bold;
   margin-top: 10px;
+}
+br {
+  display: block; /* makes it have a width */
+  content: ""; /* clears default height */
+  margin-bottom: 1rem; /* change this to whatever height you want it */
 }

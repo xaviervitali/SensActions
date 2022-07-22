@@ -5,39 +5,37 @@
 {% block main %}
      <section>
       <article>
-        <div >
-          <div class="elipse d-flex justify-content-center align-items-center text-white mx-auto " >
+        <article >
+          <article class="elipse d-flex justify-content-center align-items-center text-white mx-auto " >
 
             <h1 class="text-center">{{formation.name}}</h1>
-          </div>
-        </div>
+          </article>
+        </article>
        
-          <div >
+          <article >
 
-              <div class="page">
-                <div class="sticker p-3 text-center">
+              <article class="page">
+                <article class="sticker p-3 text-center">
                   <p class="text"><i class="fa-solid fa-circle-info me-3 fs-2"></i></p>
-                  <p>Formation mise en ligne le {{ formation.updatedAt | format_datetime('full', 'none', locale='fr') }}</p>
+         
+                  <p>Formation mise à jour le {{ formation.updatedAt | date }}</p>
                   <p>{{ formation.moreInfo}}</p>
-                </div>
-            </div>
-          </div>
-      
-
-
+                </article>
+            </article>
+          </article>
       
 
 <!-- satisfaction rating -->
 
       {% if not formation.participants  is null and not formation.satisfaction  is null and not formation.successRate  is null %}
 
-        <div class="stats d-flex justify-content-around  align-items-center mt-5 ">
-          <div class="text-center">
+        <article class="stats d-flex justify-content-around  align-items-center mt-5 ">
+          <article class="text-center">
             <p>Personnes formées</p>
             <p class="nbOfStudents">{{ formation.participants}}</p>
-          </div>
+          </article>
 
-            <div class="text-center">
+            <article class="text-center">
               <p>Satisfaction</p>
               <p class="rating">
                 <i class="fa-regular fa-star"></i>
@@ -51,14 +49,14 @@
               </p>
    
                 
-              </div>
-              <div class="text-center">
+              </article>
+              <article class="text-center">
                 <p >Taux de réussite</p>
                 <p><span class="successRate"></span> {{ formation.successRate}}%</p>
-              </div>
+              </article>
 
           
-        </div>
+        </article>
         {% endif %}
       </article>
       
@@ -66,7 +64,7 @@
         
         
         
-        <div class="boite_liste_prerequis col-lg-5 p-3">
+        <article class="boite_liste_prerequis col-lg-5 p-3">
           
           <ul>
             <li>
@@ -87,21 +85,37 @@
             <p >{{ formation.duration}}</p>
             
             <li ><i class="fa-solid fa-graduation-cap"></i>Intervenants</li>
-            <p >{{ formation.Intervenants}}</p>
+            <p class="intervenants">{{ formation.intervenants | nl2br}}</p>
 
 
             <li><i class="fa-solid fa-user-gear" id="handicap"></i>Pédagogie</li>
             <p>{{ formation.method}}
               </p>
+                   <li><i class="fa-solid fa-puzzle-piece"></i>Organisation</li>
+            <p>{{ formation.organization | nl2br}}
+              </p>
           </ul>
 
-        </div>
-        <div class="links d-flex flex-column justify-content-around col-lg-5">
+        </article>
+            <article class="boite_formations_responsive">
+      <strong>Objectif</strong>
+      <p>    {{ formation.goal | nl2br }}</p> 
+
+      <strong>Compétences</strong>
+      <p>    {{ formation.competences | nl2br }}</p> 
+
+      <strong>Validation</strong>
+      <p>    {{ formation.validation | nl2br }}</p> 
+
+      <strong>Programme</strong>
+      <p>    {{ formation.program | nl2br }}</p> 
+    </article>
+        <article class="links d-flex flex-column justify-content-around col-lg-5">
         <input type="button" value="Télécharger la plaquette" onclick="window.location='{{asset("files/" ~ formation.file)}}';"    class="download  my-lg-0 my-2">
-        <div class="contact d-flex justify-content-center align-items-center">
+        <article class="contact d-flex justify-content-center align-items-center">
         <a  class="my-2 my-lg-0 text-decoration-none text-dark" href="{{ path("contact")}}">Contactez-nous</a>
-        </div>
-      </div>
+        </article>
+      </article>
 
      
       </article>
@@ -175,93 +189,68 @@
     Programme
   </button>
 </li>
+
      
-
-
-
-<!-- :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: -->
-
-
-      {# <li class="nav-item" role="presentation">
-        <button
-          class="nav-link position-relative"
-          id="comment-tab"
-          data-bs-toggle="tab"
-          data-bs-target="#comment-tab-pane"
-          type="button"
-          role="tab"
-          aria-controls="comment-tab-pane"
-          aria-selected="false"
-        >
-          Avis et Commentaires 
-          <span
-          class="position-absolute top-0 start-lg-100  start-75
-           translate-middle badge rounded-pill bg-primary nbOfComments"
-        >
-          99+
-          <span class="visually-hidden">unread messages</span>
-        </button>
-      </li> #}
-
-      
     </ul>
 
 <!-- :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: -->
 
 
 
-    <div class="tab-content" id="myTabContent">
-      <div
+    <article class="tab-content" id="myTabContent">
+      <article
         class="tab-pane fade show active p-lg-5 p-2 "
         id="objectif-tab-pane"
         role="tabpanel"
         aria-labelledby="objectif-tab"
         tabindex="0"
       >
- {{ formation.goal}}
-      </div>
-      <div
+ {{ formation.goal  | nl2br}}
+      </article>
+      <article
         class="tab-pane fade p-lg-5 p-2 "
         id="method-tab-pane"
         role="tabpanel"
         aria-labelledby="method-tab"
         tabindex="0"
       >
-      </div>
-      <div
+      </article>
+      <article
         class="tab-pane fade p-lg-5 p-2 "
         id="validation-tab-pane"
         role="tabpanel"
         aria-labelledby="validation-tab"
         tabindex="0"
       >
-      {{ formation.validation}}
-      </div>
+      {{ formation.validation | nl2br   }}
+      </article>
 
 <!-- onglet competence -->
 
-      <div
+      <article
         class="tab-pane fade p-lg-5 p-2 "
         id="competence-tab-pane"
         role="tabpanel"
         aria-labelledby="competence-tab"
         tabindex="0"
       >
-{{ formation.competences}}
-      {{ formation.program}}
-      </div>
+{{ formation.competences | nl2br}}
+      </article>
 
 <!-- onglet programme/formation -->
-<div
+<article
         class="tab-pane fade p-lg-5 p-2 "
         id="formation-tab-pane"
         role="tabpanel"
         aria-labelledby="formation-tab"
         tabindex="0"
-      >      {{ formation.program | raw }}
+      >      {{ formation.program | nl2br }}
 
-      </div>
-      <div
+      </article>
+
+
+      </article>
+      <article
         class="tab-pane fade p-lg-5 p-2    overflow-auto"
         id="comment-tab-pane"
         role="tabpanel"
@@ -280,15 +269,15 @@
           </thead>
           <tbody></tbody>
         </table>
-      </div>
-    </div>
+      </article>
+    </article>
+  </section>
 
-</section>
 {% endblock %}
 {% block javascripts %}
 
 <script>
-const satisfaction = {{ formation.satisfaction}}
+const satisfaction = {{ formation.satisfaction ?? 0 }}
 </script>
 <script src="{{ asset('js/formation.js') }}"></script>
 {% endblock %}

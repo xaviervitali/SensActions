@@ -21,7 +21,7 @@ input {
   background-color: var(--color-yellow) !important;
   /* height: 3rem; */
 }
-.form-check > div {
+.form-check > article {
   padding: 1rem;
 }
 .form-check label {

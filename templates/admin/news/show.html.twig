@@ -1,35 +1,59 @@
 {% extends 'baseAdmin.html.twig' %}
 
-{% block title %}{{ news.title }}{% endblock %}
+{% block title %}
+  {{ news.title }}
+{% endblock %}
 {% block stylesheetsAdmin %}
-    <link rel="stylesheet" href="{{asset("css/adminNewsShow.css")}}">
+  <link rel="stylesheet" href="{{ asset('css/adminNewsShow.css') }}" />
 {% endblock %}
 {% block main %}
-    <h1>{{ news.title }}</h1>
+  <h1>
+    {{ news.title }}
+  </h1>
 
-    <table class="table">
-        <tbody>
+  <table class="table">
+    <tbody>
+      <tr>
+        <th>
+          Titre
+        </th>
+        <td>
+          {{ news.title }}
+        </td>
+      </tr>
+      <tr>
+        <th>
+          Description
+        </th>
+        <td>
+          {{ news.description }}
+        </td>
+      </tr>
+      <tr>
+        <th>
+          Illustration
+        </th>
+        <td>
+          <img src="{{ asset('newsPictures/' ~ news.image) }}" />
+        </td>
+      </tr>
+    </tbody>
+  </table>
 
-            <tr>
-                <th>Titre</th>
-                <td>{{ news.title }}</td>
-            </tr>
-            <tr>
-                <th>Description</th>
-                <td>{{ news.description }}</td>
-            </tr>
-            <tr>
-                <th>Illustration</th>
-                <td><img src="{{asset("newsPictures/" ~ news.image) }}"></td>
-            </tr>
-        </tbody>
-    </table>
-
-    {# <a class="d-block" href="{{ path('app_news_index') }}">Revenir à la liste</a> #}
-<div class="d-flex justify-content-end">
-    <a class="btn-block btn btn-info mx-2" href="{{ path('app_news_edit', {'id': news.id}) }}">Éditer {{news.title}}</a>
+  {# <a class="d-block" href="{{ path('app_news_index') }}">Revenir à la liste</a> #}
+  <article class="d-flex justify-content-end">
+    <a class="btn-block btn btn-info mx-2"
+      href="{{
+      path(
+        'app_news_edit',
+        {
+          id: news.id
+        }
+      )
+      }}">
+      Éditer {{ news.title }}
+    </a>
 
     {{ include('admin/news/_delete_form.html.twig') }}
-
-    </div>
+  </article>
 {% endblock %}

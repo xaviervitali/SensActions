@@ -132,7 +132,7 @@ label,
   display: none;
 }
 
-:checked + div + form {
+:checked + article + form {
   display: block;
   /* justify-content: space-around;
   align-items: center; */

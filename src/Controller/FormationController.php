@@ -8,6 +8,7 @@ use App\Form\FormationType;
 use App\Form\LearningCategoryType;
 use App\Repository\FormationRepository;
 use App\Repository\LearningCategoryRepository;
+use DateTimeImmutable;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -51,6 +52,7 @@ class FormationController extends AbstractController
              * @var Formation $formation
              */
             $formation = $form->getData();
+            $formation->setUpdatedAt(new DateTimeImmutable());
             $formation->setSlug($slugger->slug($formation->getName()));
             $em->persist($formation);
             $em->flush();
@@ -72,6 +74,8 @@ class FormationController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $formation->setUpdatedAt(new DateTimeImmutable());
+
             $formationRepository->add($formation, true);
 
             return $this->redirectToRoute('app_formation_index', [], Response::HTTP_SEE_OTHER);

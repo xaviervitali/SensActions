@@ -39,26 +39,26 @@
 
 //  </article>
 
-//    <div class="tabTitle" style="top:${i * themes.length}vh">
+//    <article class="tabTitle" style="top:${i * themes.length}vh">
 //      <h2>  ${themes[i]}</h2>
-//   </div>
+//   </article>
 // </article>`;
 
 //   document.querySelector(".accordion").innerHTML += `
-//   <div class="accordion-item">
+//   <article class="accordion-item">
 //   <h2 class="accordion-header" id="heading${i}">
 
 //     <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse${i}" aria-expanded="true" aria-controls="collapse${i}">
 //     ${themes[i]}
 //     </button>
 //   </h2>
-//   <div id="collapse${i}" class="accordion-collapse collapse " aria-labelledby="heading${i}" data-bs-parent="#accordionExample">
-//     <div class="accordion-body">
+//   <article id="collapse${i}" class="accordion-collapse collapse " aria-labelledby="heading${i}" data-bs-parent="#accordionExample">
+//     <article class="accordion-body">
 //     ${currentText()}
 
-//     </div>
-//   </div>
-// </div>
+//     </article>
+//   </article>
+// </article>
 // `;
 // }
 

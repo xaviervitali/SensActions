@@ -20,7 +20,7 @@ footer a,
 footer li {
   color: var(--color-dark-blue);
   text-decoration: none;
-  font-size: 18px;
+  font-size: 1rem;
 }
 
 footer .mentions {
@@ -39,5 +39,5 @@ footer i {
 }
 
 footer ul {
-  padding: 0;
+  /* padding: 0; */
 }
