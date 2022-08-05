@@ -71,6 +71,9 @@ main a {
   color: white;
   text-decoration: none;
 }
+main a:hover {
+  color: black;
+}
 
 main > article {
   height: 100vh;
@@ -168,18 +171,32 @@ section .tab:hover {
 }
 .tabContent li {
   width: 50%;
-}
-.tabContent li:nth-last-child(2n) {
   margin-left: 50%;
 }
+.tabContent li:nth-last-child(2n) {
+  margin-left: 0;
+}
+.tabContent img {
+  /* width: 60px; */
+  height: 40px;
+  object-fit: contain;
+  /* background-color: #ffffff88; */
+  border-radius: 5px;
+  transition: all 1s;
+}
 
+.tabContent img:hover {
+  transform: scale(4);
+  background-color: #ffffffaa;
+  transition: all 1s;
+}
 main ul {
   list-style: none;
 }
 
 @media screen and (max-width: 992px) {
   .accordion-body {
-    margin-left: 20vw;
+    /* margin-left: 20vw; */
   }
   .accordion-button {
     color: white !important;

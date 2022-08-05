@@ -33,6 +33,8 @@ main .elipse {
 }
 main h1 {
   color: var(--color-dark-blue);
+  max-width: 60ch;
+  padding: 0 1rem;
 }
 /*
 ###########################
@@ -308,4 +310,16 @@ br {
   display: block; /* makes it have a width */
   content: ""; /* clears default height */
   margin-bottom: 1rem; /* change this to whatever height you want it */
+}
+
+.logos {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.logos img {
+  width: 100px;
+  /* background-color: white; */
+  border-radius: 5px;
 }

@@ -5,6 +5,10 @@ header {
   justify-content: center;
   /* border-bottom: 10px solid var(--color-yellow); */
 }
+
+header * {
+  font-family: "Montserrat", sans-serif;
+}
 .navbar-expand-lg {
   /* margin: 3vw 0; */
 }

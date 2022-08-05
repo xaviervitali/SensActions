@@ -4,7 +4,7 @@
 {% endblock %}
 {% block main %}
 	<article class="search">
-		<p class="text-center px-2" style="letter-spacing: 3px; line-height: 30px;">Le cabinet de conseil Sens Actions à Marseille propose un important catalogue de formations destiné aux préventeurs en entreprise, aux médecins du travail, aux Intervenants en Prévention des Risques Professionnels (IPRP), aux membres du CHSCT (CSE), aux responsables des ressources humaines, aux managers, aux formateurs et plus généralement à tous les acteurs impliqués dans le projet Santé au travail de son organisation.</p>
+		<p class="text-center px-2" style="letter-spacing: 3px; line-height: 30px;">Le cabinet de conseil Sens Actions propose un important catalogue de formations destiné aux préventeurs en entreprise, aux médecins du travail, aux Intervenants en Prévention des Risques Professionnels (IPRP), aux membres du CSE, aux responsables des ressources humaines, aux managers, aux formateurs et plus généralement à tous les acteurs impliqués dans le projet Santé au travail de son organisation.</p>
 		{% include "public/recherche.html.twig" %}
 	</article>
 	<section class="d-none d-lg-flex">
@@ -16,12 +16,20 @@
 				<article class="tab" style="z-index: {{ 100 - loop.index}}">
 					<article class="tabContent">
 			
-					{% for formation in learningCategory.formations | sort((a,b)=>a.name > b.name)%}
-						<li><a href='{{path("app_formation_show", {slug: formation.slug})}}'>{{formation.name}}</a></li>
+					{% for formation in learningCategory.formations | filter(e=>e.enabled) | sort((a,b)=>a.name > b.name)%}
+						<li><a  href='{{path("app_formation_show", {slug: formation.slug})}}'>{{formation.name |title }}
+						  {% if formation.cpf or formation.certification %}
+							<span class="badge rounded-pill text-dark" >
+								{{ formation.cpf ? "CPF" :"" }}
+								{{ formation.cpf and  formation.certification ? "&" :"" }}
+
+								{{ formation.certification ? "Certifiante" :"" }}</span>
+						{% endif %}
+		  </a> </li>
 					{% endfor %}
 					</article>
 					<article class="tabTitle" style="top:{{ loop.index * (learningCategories | length) }}vh">
-							<h2> {{ learningCategory.name}} </h2>
+							<h2> {{ learningCategory.name | upper}} </h2>
 						</article> 
 				</article>
 		{% endfor %}
@@ -38,7 +46,16 @@
 				<article id="collapse{{loop.index}}" class="accordion-collapse collapse " aria-labelledby="heading{{loop.index}}" data-bs-parent="#accordionExample">
 					<article class="accordion-body">
 						{% for formation in learningCategory.formations %}
-							<p><a href='{{path("app_formation_show", {slug: formation.slug})}}'>{{formation.name}}</a></p>
+							<p><a href='{{path("app_formation_show", {slug: formation.slug})}}'>{{formation.name}} 
+									  {% if formation.cpf or formation.certification %}
+							<span class="badge rounded-pill text-dark">
+								{{ formation.cpf ? "CPF" :"" }}
+								{{ formation.cpf and  formation.certification ? "&" :"" }}
+
+								{{ formation.certification ? "Certifiante" :"" }}
+						{% endif %}
+							</a>
+						</p>
 						{% endfor %}
 					</article>
 				</article>

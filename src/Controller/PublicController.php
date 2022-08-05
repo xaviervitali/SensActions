@@ -8,11 +8,16 @@ use App\Form\ContactType;
 use App\Repository\FormationRepository;
 use App\Repository\LearningCategoryRepository;
 use App\Repository\NewsRepository;
+use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Mailer\MailerInterface;
+use Symfony\Component\Mime\Email;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Mime\Crypto\DkimSigner;
+use Mailjet\Resources;
 
 class PublicController extends AbstractController
 {
@@ -64,16 +69,79 @@ class PublicController extends AbstractController
         return $this->render('public/actualites.html.twig', ["news" => $newsRepository->findBy([])]);
     }
     #[Route('/contact', name: 'contact')]
-    public function contact(Request $request, EntityManagerInterface $em): Response
+    public function contact(Request $request): Response
     {
         $form = $this->createForm(ContactType::class);
         $form->handleRequest($request);
+
         if ($form->isSubmitted() && $form->isValid()) {
+            /**
+             * @var Contact $contact
+             */
             $contact = $form->getData();
             $message = $contact->getMessage();
-            $em->persist($contact);
-            $em->flush();
-            $this->addFlash('success', $message);
+            $createdAt = date_format(new DateTime(), "d/m/Y à H:i");
+            $mj = new \Mailjet\Client('09c1211f5bbef28cc5462c3af9381dc6', 'e4a930df382c3e8849c8835bcbe40bc0', true, ['version' => 'v3.1']);
+
+            $data = [
+                "createdAt" => $createdAt,
+                "contactType" => $contact->getContactType(),
+                "email" => $contact->getEmail(),
+                "phone" => $contact->getPhone(),
+                "firstname" => $contact->getFirstname(),
+                "lastname" => $contact->getLastname(),
+                "message" => nl2br($message),
+            ];
+            $body = [
+                'Messages' => [
+                    [
+                        'From' => [
+                            'Email' => "annebuonomo@sens-actions.fr",
+                            'Name' => "sens-actions.fr"
+                        ],
+                        'To' => [
+                            [
+                                'Email' => "contact@sens-actions.fr",
+                                'Name' => "Contact"
+                            ]
+                        ],
+                        // "CC" => [[
+                        //     "Email" => "contact@aggregotech.fr",
+                        //     'Name' => "Contact Aggrego-Tech"
+                        // ]],
+                        'TemplateID' => 4114124,
+                        'TemplateLanguage' => true,
+                        'Subject' => "Un nouveau contact cherche a vous joindre",
+                        'Variables' => json_decode(json_encode($data), true)
+                    ]
+                ]
+
+            ];
+            // $body = [
+            //     'Messages' => [
+            //         [
+            //             'From' => [
+            //                 'Email' => "contact@aggregotech.fr",
+            //                 'Name' => "Me"
+            //             ],
+            //             'To' => [
+            //                 [
+            //                     'Email' => "contact@aggregotech.fr",
+            //                     'Name' => "You"
+            //                 ]
+            //             ],
+            //             'Subject' => "My first Mailjet Email!",
+            //             'TextPart' => "Greetings from Mailjet!",
+            //             'HTMLPart' => "<h3>Dear passenger 1, welcome to <a href=\"https://www.mailjet.com/\">Mailjet</a>!</h3>
+            //             <br />May the delivery force be with you!"
+            //         ]
+            //     ]
+            // ];
+            $response = $mj->post(Resources::$Email, ['body' => $body]);
+            // dd($mj);
+            $response->success() &&  $this->addFlash('success', $message);
+            !$response->success() &&  $this->addFlash('danger', "Une erreur est survenue veuillez reesayer ultérieurement");
+
             return $this->render('public/contact.html.twig', ["form" => $form->createView()]);
         }
         return $this->render('public/contact.html.twig', ["form" => $form->createView()]);

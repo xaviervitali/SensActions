@@ -52,7 +52,7 @@ class Formation
     #[Groups("formation_view")]
     private $goal;
 
-    #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    #[ORM\Column(type: 'text', nullable: true)]
     private $method;
 
     #[ORM\Column(type: 'text')]
@@ -74,14 +74,13 @@ class Formation
     #[ORM\ManyToMany(targetEntity: LearningCategory::class, inversedBy: 'formations', cascade: ["persist"])]
     private $learningCategories;
 
-
-    #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    #[ORM\Column(type: 'string', length: 500, nullable: true)]
     private $moreInfo;
 
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private $handicap;
 
-    #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    #[ORM\Column(type: 'string', length: 500, nullable: true)]
     private $intervenants;
 
     #[ORM\Column(type: 'text')]

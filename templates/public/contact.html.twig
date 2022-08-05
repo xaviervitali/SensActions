@@ -9,108 +9,17 @@
         <strong>Un besoin ? Parlons-en !</strong>
       </h1>
       <p>
-        Qu’il s’agisse d’actions visant à développer la formation à la santé et
-        la sécurité au travail au sein de votre structure,
+        Sens Actions vous conseille et vous accompagne dans toutes vos actions
+        en santé/sécurité au travail, leviers de performances de votre
+        entreprise.
       </p>
-      <p>
-        Sens Actions à Marseille joue un rôle primordial dans la transmission
-        des performances et compétences en prévention des risques
-        professionnels.
-      </p>
+
       <p>
         L’équipe de Sens Actions reste à votre écoute pour l’étude de vos
         besoins.
       </p>
     </article>
     <article>
-      {# <form action="" method="">
-            <article class="row mb-3">
-              <article class="col">
-                <input
-                  type="text"
-                  class="form-control"
-                  placeholder="Nom"
-                  required="required"
-                />
-              </article>
-              <article class="col">
-                <input
-                  type="text"
-                  class="form-control"
-                  placeholder="Prénom"
-                  required="required"
-                />
-              </article>
-            </article>
-            <article class="row mb-3">
-              <article class="col">
-                <input
-                  type="tel"
-                  id="contact_phone"
-                  name="contact[phone]"
-                  required="required"
-                  placeholder="Téléphone"
-                  class="form-control"
-                />
-              </article>
-              <article class="col">
-                <input
-                  type="mail"
-                  class="form-control"
-                  placeholder="E-mail"
-                  required="required"
-                />
-              </article>
-            </article>
-            <article class="row mb-3">
-              <article class="col">
-                <label class="choix-radio" style="padding: 15px"
-                  >Vous êtes :</label
-                >
-              </article>
-              <article
-                class="col d-block d-md-flex justify-content-around custom-control custom-radio"
-              >
-                <label class="custom-control-label" for="radio1">
-                 Un particulier
-                  <input type="radio" class="custom-control-input" id="radio1"
-                /></label>
-
-                <label class="custom-control-label" for="radio1">
-                 Une entreprise
-                  <input type="radio" class="custom-control-input" id="radio2"
-                /></label>
-              </article>
-              <article class="form-group">
-                <label for="message"></label>
-                <textarea
-                  class="form-control"
-                  id="bio"
-                  placeholder="Message"
-                  rows="4"
-                ></textarea>
-              </article>
-              <article class="rgpd">
-                <p>
-                  <input
-                    type="checkbox"
-                    id="contact_agreements"
-                    name="contact[agreements]"
-                    required="required"
-                    class="form-check-input"
-                    value="1"
-                  />
-                  <span
-                    >J'accepte de communiquer mes coordonnées personnelles qui
-                    seront traitées dans le cadre du respect du RGPD de Sens Actions.</span
-                  >
-                </p>
-              </article>
-              <article class="d-grid justify-content-md-end">
-                <button class="btn bouton" type="envoyer">Envoyer</button>
-              </article>
-            </article>
-          </form> #}
       {% set flashes = app.flashes %}
       {% if flashes %}
         {% for type, message in flashes %}
@@ -186,7 +95,7 @@
             loading="lazy"
             referrerpolicy="no-referrer-when-downgrade"></iframe>
         </article>
-        <img src="http://via.placeholder.com/640x360"
+        <img src="{{ asset('img/calanque9.jpg') }}"
           alt=""
           class="d-block col" />
       </article>

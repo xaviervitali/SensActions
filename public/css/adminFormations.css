@@ -127,15 +127,12 @@ label,
   min-height: 150px;
 }
 
-.titres > input,
-.titres form {
+.titres > input[type="checkbox"] {
   display: none;
 }
 
-:checked + article + form {
-  display: block;
-  /* justify-content: space-around;
-  align-items: center; */
+.hidden {
+  display: none;
 }
 
 .fa-trash-can:hover {

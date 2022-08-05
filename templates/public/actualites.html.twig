@@ -32,7 +32,7 @@
           <img src="{{ asset('newsPictures/' ~ new.image) }}"
             alt="{{ new.title }}" />
         {% endif %}
-        {{ new.description }}
+        {{ new.description|nl2br }}
         <p class="mt-3 text-end fw-bold">
           Ajouté le {{ new.updatedAt|format_datetime('full', 'none', locale = 'fr') }}
         </p>

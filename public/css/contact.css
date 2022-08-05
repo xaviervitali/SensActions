@@ -1,24 +1,24 @@
-h1 {
+main h1 {
   padding: 25px 0 0 0;
 }
 main {
   width: 80%;
 }
-.bouton {
+main .bouton {
   color: var(--color-dark-blue);
   background-color: var(--color-yellow);
 }
 
-.bouton:hover {
+main .bouton:hover {
   color: var(--color-dark-blue);
   background-color: var(--color-yellow);
 }
 
-article {
+main article {
   padding-top: 40px;
 }
 
-form {
+main form {
   color: white;
   padding: 50px;
   border-radius: 10px;
@@ -26,22 +26,23 @@ form {
   /* border-color: var(--color-dark-blue); */
 }
 
-p {
+main p {
   padding-top: 10px;
 }
 
-input[type="radio"] {
+main input[type="radio"] {
   margin-left: 5vw;
 }
 
-textarea {
+main textarea {
   min-height: 200px !important;
 }
-img {
+main img {
   max-width: 640px;
   width: 30% !important;
+  border-radius: 5rem;
 }
-iframe {
+main iframe {
   border-radius: 5%;
   display: block;
   width: 100%;

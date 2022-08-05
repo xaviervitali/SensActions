@@ -18,7 +18,7 @@
                 <div >
                 <h2 class="text-center">Ajouter un thème de formation</h2>
                 </div>
-                    {{ form_start(form, {attr: {class:"w-100"}})}}
+                    {{ form_start(form, {attr: {class:"w-100 hidden"}})}}
                     <div class="">
                     {{ form_widget(form.name)}}
 
@@ -87,8 +87,15 @@
           </p>
       </article>
         {% endfor %}
-          <!-- Block généré par le JS -->
         </article>
       </section>
 
+{% endblock %}
+
+{% block javascripts %}
+    <script>
+    document.querySelector(".titres > input[type='checkbox']").addEventListener("change", function(e){
+        document.querySelector(".titres form").classList.toggle("hidden")
+    })
+    </script>
 {% endblock %}

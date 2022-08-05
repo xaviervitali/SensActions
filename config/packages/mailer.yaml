@@ -1,3 +1,8 @@
 framework:
-    mailer:
-        dsn: '%env(MAILER_DSN)%'
+  mailer:
+    dsn: "%env(MAILER_DSN)%"
+    # envelope:
+    #   sender: "contact@sens-actions.fr"
+    # headers:
+    #   From: "Contact <contact@sens-actions.fr>"
+    #   To: "test <contact@aggregotech.fr>"

@@ -40,7 +40,7 @@
 
 /* Placement des textes */
 .textDemarche1 {
-  animation: ease-in-out top-to-bottom 10s infinite alternate;
+  /* animation: ease-in-out top-to-bottom 10s infinite alternate; */
 }
 
 .textDemarche2 {

@@ -23,9 +23,9 @@ class FormationType extends AbstractType
     {
         $builder
             ->add('name', TextType::class, ["label" => "Nom de la formation", "attr" => ["placeholder" => "Nom de la formation", "class" => "form-control col-4 "]])
-            ->add('moreInfo', TextType::class, ["label" => "Les plus de la formation", "attr" => ["placeholder" => "Les plus de la formation", "class" => "form-control col-4 "]])
+            ->add('moreInfo', TextareaType::class, ["label" => "Les plus de la formation", "attr" => ["placeholder" => "Les plus de la formation", "class" => "form-control col-4 ", "maxlength" => 500]])
             ->add('handicap', TextType::class, ["label" => "Accessibilité", "attr" => ["placeholder" => "Accessibilité", "class" => "form-control col-4 "]])
-            ->add('intervenants', TextareaType::class, ["label" => "Intervenants", "attr" => ["placeholder" => "Intervenants", "class" => "form-control col-4 "]])
+            ->add('intervenants', TextareaType::class, ["label" => "Intervenants", "attr" => ["placeholder" => "Intervenants", "maxlength" => 500, "class" => "form-control col-4 "]])
             ->add('public', TextType::class, ["label" => "Public", "attr" => ["placeholder" => "Public", "class" => "form-control col-4"]])
             ->add('duration', TextType::class, ["label" => "Durée", "attr" => ["placeholder" => "Durée", "class" => "form-control "]])
             ->add('prerequisite', TextType::class, ["label" => "Pré-requis", "attr" => ["placeholder" => "Pré-requis", "class" => "form-control "]])
@@ -35,11 +35,11 @@ class FormationType extends AbstractType
             ->add('goal', TextareaType::class, ["label" => "Objectifs de la formation", "attr" => ["placeholder" => "Objectifs de la formation", "class" => "form-control "]])
             ->add('organization', TextareaType::class, ["label" => "Organisation de la formation", "attr" => ["placeholder" => "Organisation de la formation", "class" => "form-control "]])
             ->add('program', TextareaType::class, ["label" => "Programme de la formation", "attr" => ["placeholder" => "Programme de la formation", "class" => "form-control "]])
-            ->add('method', TextType::class, ["label" => "Pédagogie", "attr" => ["placeholder" => "Pédagogie", "class" => "form-control "]])
+            ->add('method', TextareaType::class, ["label" => "Pédagogie", "attr" => ["placeholder" => "Pédagogie", "class" => "form-control "]])
             ->add('validation', TextareaType::class, ["label" => "Validation", "attr" => ["placeholder" => "Validation", "class" => "form-control "]])
             ->add('competences', TextareaType::class, ["label" => "Compétences", "attr" => ["placeholder" => "Compétences", "class" => "form-control "]])
-            ->add('certification', CheckboxType::class, ['required' => false, "label" => "Certifiante", "attr" => ["disabled" => "disabled", "class" => "form-check-input"]])
-            ->add('cpf', CheckboxType::class, ['required' => false, "label" => "Eligible au CPF", "attr" => ["disabled" => "disabled", "class" => "form-check-input"]])
+            ->add('certification', CheckboxType::class, ['required' => false, "label" => "Certifiante", "attr" => ["class" => "form-check-input"]])
+            ->add('cpf', CheckboxType::class, ['required' => false, "label" => "Eligible au CPF", "attr" => ["class" => "form-check-input"]])
             ->add('enabled', CheckboxType::class, ['required' => false, "label" =>  "Activée", "attr" => ["class" => "form-check-input"]])
             ->add('uploadedFile', VichFileType::class, [
                 "label" => "Fichier",

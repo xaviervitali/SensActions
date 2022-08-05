@@ -8,7 +8,7 @@
         <article >
           <article class="elipse d-flex justify-content-center align-items-center text-white mx-auto " >
 
-            <h1 class="text-center">{{formation.name}}</h1>
+            <h1 class="text-center">{{formation.name | upper }}</h1>
           </article>
         </article>
        
@@ -18,8 +18,8 @@
                 <article class="sticker p-3 text-center">
                   <p class="text"><i class="fa-solid fa-circle-info me-3 fs-2"></i></p>
          
-                  <p>Formation mise à jour le {{ formation.updatedAt | date }}</p>
-                  <p>{{ formation.moreInfo}}</p>
+                  <p>Formation mise à jour le {{ formation.updatedAt |format_datetime('short', 'none', locale = 'fr')  }}</p>
+                  <p>{{ formation.moreInfo | nl2br }}</p>
                 </article>
             </article>
           </article>
@@ -89,7 +89,7 @@
 
 
             <li><i class="fa-solid fa-user-gear" id="handicap"></i>Pédagogie</li>
-            <p>{{ formation.method}}
+            <p>{{ formation.method | nl2br}}
               </p>
                    <li><i class="fa-solid fa-puzzle-piece"></i>Organisation</li>
             <p>{{ formation.organization | nl2br}}
@@ -111,6 +111,18 @@
       <p>    {{ formation.program | nl2br }}</p> 
     </article>
         <article class="links d-flex flex-column justify-content-around col-lg-5">
+        {% if formation.cpf or formation.certification %}
+        <article class="logos">
+          {% if formation.cpf %}
+            <img src="{{asset("img/CPF1.png")}}" alt="" class="d-block">
+          {% endif %}
+
+          {% if formation.certification %}
+            <img src="{{asset("img/Certif1.png")}}" alt="" class="d-block">
+            
+          {% endif %}
+        </article>  
+        {% endif %}
         <input type="button" value="Télécharger la plaquette" onclick="window.location='{{asset("files/" ~ formation.file)}}';"    class="download  my-lg-0 my-2">
         <article class="contact d-flex justify-content-center align-items-center">
         <a  class="my-2 my-lg-0 text-decoration-none text-dark" href="{{ path("contact")}}">Contactez-nous</a>
